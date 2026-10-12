@@ -1,5 +1,12 @@
 # Compatibility review
 
+**Historical initial-port report, not current installation instructions.**
+The standalone baseline described here predates the V0.1.0 Codex plugin and
+the Russian editor. For current installation and capabilities, see
+[README.md](README.md), [README.ru.md](README.ru.md) and
+[PLUGIN_TEST_REPORT.md](PLUGIN_TEST_REPORT.md). Claude commands/paths in the
+comparison below describe the original upstream, not commands to run in Codex.
+
 Initial port review at baseline 3f83e07. IG_HUMAN_RU_V1 subsequently adds
 shared ru/ru-social editing and an emoji preservation fix; see
 [RU_TEST_REPORT.md](RU_TEST_REPORT.md) and [RU workflow](skills/ig-human/references/ru.md).
@@ -26,11 +33,11 @@ was found in the source. The workflows themselves are Markdown instructions.
 
 ## Dependencies and behavior changes
 
-| Upstream dependency | Port |
+| Historical Claude/upstream dependency | Initial standalone port at 3f83e07 |
 | --- | --- |
 | `~/.claude/skills`, project `.claude/skills` | Installer copies to the chosen project's `.agents/skills`; no global install is performed. |
 | `/ig-*` Claude slash commands | `$ig-*` Codex skill mentions; sibling calls mean load SKILL.md and execute its workflow. |
-| `.claude-plugin/{marketplace,plugin}.json`, `/plugin` | Removed; this version is an ordinary skill pack, with no plugin/catalog publication. |
+| `.claude-plugin/{marketplace,plugin}.json`, `/plugin` | Removed in the initial standalone port. V0.1.0 subsequently adds native Codex plugin packaging; OpenAI catalog publication remains outside this release. |
 | `~/.claude/instagram/{voice,swipe,plan,log}.md` | INSTAGRAM_AGENT_HOME, then CODEX_HOME/instagram, then ~/.codex/instagram. No automatic migration. |
 | `python3`, `cp -r`, shell line continuations, `pbpaste` | Python project installer and quoted absolute script paths; Windows uses python/py. Mac clipboard examples are marked optional. |
 | `hookscore.py`, `beats.py`, etc. as cwd-relative commands | Instructions resolve from the loaded skill's path. JSON resources still resolve from `__file__`. |
@@ -70,7 +77,12 @@ after copying the pack without repository-level imports.
 | ig-repurpose | Extraction and one-at-a-time drafting | Text supplied; transcription/editing optional and UNVERIFIED. |
 | ig-audit | Outlier/hold/sends/follows calculations and handoffs | User-supplied Insights; no live account analytics connection. |
 
-## Remaining verification boundaries
+## Verification boundaries at the initial baseline
+
+The following paragraph records the original 3f83e07 limitations. The later
+Russian adaptation and emoji-preservation fix are tested in
+[RU_TEST_REPORT.md](RU_TEST_REPORT.md); current plugin boundaries are recorded
+in [PLUGIN_TEST_REPORT.md](PLUGIN_TEST_REPORT.md).
 
 The pack is usable with a local Codex shell and supplied text without external
 services. Browsing, transcription, actual editing, image export, platform
