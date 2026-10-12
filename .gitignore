@@ -3,3 +3,14 @@ __pycache__/
 *.pyc
 .venv/
 *.tmp
+
+.agents/
+.codebase-memory/
+.instagram-agent/
+.test-work/
+codex-smoke/
+*.log
+*.jsonl
+.env
+.env.*
+outputs/

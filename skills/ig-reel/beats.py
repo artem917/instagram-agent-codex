@@ -17,12 +17,14 @@ Usage
   python3 beats.py script.txt
   python3 beats.py script.txt --target 30
   python3 beats.py script.txt --wpm 185 --target 45
-  pbpaste | python3 beats.py -
+  # macOS clipboard (optional): pbpaste | python3 beats.py -
   python3 beats.py script.txt --json
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
+import math
 import re
 import sys
 
@@ -199,7 +201,11 @@ def main():
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
-    raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+    if not math.isfinite(args.wpm) or args.wpm <= 0:
+        ap.error("--wpm must be a finite positive number")
+    if args.target is not None and (not math.isfinite(args.target) or args.target <= 0):
+        ap.error("--target must be a finite positive number")
+    raw = read_text(args.input)
     a = analyse(raw, wpm=args.wpm, target=args.target)
     if not a:
         print("empty script", file=sys.stderr)
@@ -212,4 +218,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

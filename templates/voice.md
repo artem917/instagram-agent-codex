@@ -1,10 +1,11 @@
 # voice.md
 
-Copy this to `~/.claude/instagram/voice.md` and fill it in. Every skill in the
-pack reads it. Ten minutes here is the difference between scripts you shoot and
+Copy this to `<data_dir>/voice.md` and fill it in. Every skill in the
+pack reads it. Resolve data_dir using the skill's references/codex.md.
+This template contains no user data; keep the filled copy outside public source. Ten minutes here is the difference between scripts you shoot and
 scripts you rewrite.
 
-If you would rather not fill it in by hand, send Claude three of your own reels
+If you would rather not fill it in by hand, send Codex three of your own reels
 or captions and say "write my voice.md from these". That works better than
 guessing at the answers.
 

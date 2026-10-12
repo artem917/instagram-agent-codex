@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-carousel"
+  short_description: "Draft carousel copy and prepare slide layouts"
+  default_prompt: "Use $ig-carousel for my Instagram content task using the facts I provide."

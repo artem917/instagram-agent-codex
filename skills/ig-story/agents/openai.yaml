@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-story"
+  short_description: "Draft a daily sequence of Instagram Stories"
+  default_prompt: "Use $ig-story for my Instagram content task using the facts I provide."

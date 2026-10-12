@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-viral"
+  short_description: "Rank manually captured Reels and build a swipe"
+  default_prompt: "Use $ig-viral for my Instagram content task using the facts I provide."

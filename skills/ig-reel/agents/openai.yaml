@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-reel"
+  short_description: "Draft Reels with scored hooks and timed beats"
+  default_prompt: "Use $ig-reel for my Instagram content task using the facts I provide."

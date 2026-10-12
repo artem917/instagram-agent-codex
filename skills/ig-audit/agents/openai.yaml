@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-audit"
+  short_description: "Audit supplied Instagram post performance"
+  default_prompt: "Use $ig-audit for my Instagram content task using the facts I provide."

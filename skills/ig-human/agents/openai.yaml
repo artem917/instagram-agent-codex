@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-human"
+  short_description: "Clean English drafts with local text heuristics"
+  default_prompt: "Use $ig-human for my Instagram content task using the facts I provide."

@@ -26,11 +26,12 @@ Each check returns 0 to 100. Higher is better.
 Usage
   python3 hookscore.py hooks.txt              # one hook per line, ranked
   python3 hookscore.py --hook "I lost $18,000 on one missing contract."
-  pbpaste | python3 hookscore.py -
+  # macOS clipboard (optional): pbpaste | python3 hookscore.py -
   python3 hookscore.py hooks.txt --json
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
 import re
 import statistics
@@ -278,7 +279,7 @@ def main():
     if args.hook:
         lines = [args.hook]
     else:
-        raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        raw = read_text(args.input)
         lines = [l.strip() for l in raw.splitlines() if l.strip()]
     if not lines:
         print("nothing to score", file=sys.stderr)
@@ -298,7 +299,7 @@ def main():
 
     if args.json:
         print(json.dumps(payload if len(payload) > 1 else payload[0], indent=2, ensure_ascii=False))
-        return
+        sys.exit(0 if any(p["verdict"] == "STRONG" for p in payload) else 1)
 
     if len(payload) == 1:
         results, overall, verdict, flags = run(lines[0])
@@ -306,8 +307,8 @@ def main():
     else:
         render_table(sorted(payload, key=lambda r: -r["score"]))
 
-    sys.exit(0 if max(p["score"] for p in payload) >= 70 else 1)
+    sys.exit(0 if any(p["verdict"] == "STRONG" for p in payload) else 1)
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

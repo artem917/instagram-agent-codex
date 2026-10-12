@@ -1,0 +1,420 @@
+{
+  "date": "2026-10-12",
+  "evidence": "Sanitized actual Codex CLI output artifacts on synthetic inputs; raw event logs remain local.",
+  "environment": {
+    "platform": "Windows",
+    "python": "3.14.3",
+    "codex_cli": "0.162.0-alpha.17.2",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "high"
+  },
+  "caption": {
+    "text": "Save this.\n\nI used one template for client proposals.\n\nIt cut my drafting time from 5 hours to 20 minutes.\n",
+    "lint": {
+      "characters": 106,
+      "limit": 2200,
+      "truncate_at": 125,
+      "visible": "Save this.\n\nI used one template for client proposals.\n\nIt cut my drafting time from 5 hours to 20 minutes.",
+      "truncated": false,
+      "first_line_chars": 10,
+      "hashtags": [],
+      "mentions": [],
+      "links": [],
+      "emoji": 0,
+      "asks": [
+        "save this"
+      ],
+      "checks": [
+        {
+          "check": "LENGTH",
+          "status": "PASS",
+          "detail": "106 / 2200 characters"
+        },
+        {
+          "check": "FIRST LINE",
+          "status": "PASS",
+          "detail": "10 characters, lands whole"
+        },
+        {
+          "check": "HOOK IS CONCRETE",
+          "status": "PASS",
+          "detail": "2 number(s) or name(s) in the visible window"
+        },
+        {
+          "check": "HASHTAGS",
+          "status": "PASS",
+          "detail": "0 tag(s)"
+        },
+        {
+          "check": "TAG PLACEMENT",
+          "status": "PASS",
+          "detail": "no tags to place"
+        },
+        {
+          "check": "LINKS",
+          "status": "PASS",
+          "detail": "no dead links in the body"
+        },
+        {
+          "check": "ONE ASK",
+          "status": "PASS",
+          "detail": "one call to action: save this"
+        },
+        {
+          "check": "EMOJI",
+          "status": "PASS",
+          "detail": "0 emoji, 0.0 per 100 characters"
+        },
+        {
+          "check": "SEARCH TERMS",
+          "status": "PASS",
+          "detail": "1/1 present, 1 in the visible window"
+        }
+      ],
+      "verdict": "READY"
+    },
+    "detect": [
+      {
+        "source": ".\\results\\caption\\draft.txt",
+        "checks": {
+          "BURSTINESS": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SPECIFICITY": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SLOP DENSITY": {
+            "score": 100.0,
+            "detail": "0 stock terms, 0.0 per 100 words"
+          },
+          "FINGERPRINT": {
+            "score": 100.0,
+            "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+          },
+          "VOICE": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          }
+        },
+        "human_score": 62.0,
+        "verdict": "REVIEW"
+      },
+      {
+        "source": ".\\results\\caption\\clean.txt",
+        "checks": {
+          "BURSTINESS": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SPECIFICITY": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SLOP DENSITY": {
+            "score": 100.0,
+            "detail": "0 stock terms, 0.0 per 100 words"
+          },
+          "FINGERPRINT": {
+            "score": 100.0,
+            "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+          },
+          "VOICE": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          }
+        },
+        "human_score": 62.0,
+        "verdict": "REVIEW"
+      }
+    ],
+    "humanize": {
+      "text": "Save this.\n\nI used one template for client proposals.\n\nIt cut my drafting time from 5 hours to 20 minutes.\n",
+      "report": {
+        "invisible": [],
+        "typographic": [],
+        "lexical": [],
+        "structures": []
+      }
+    },
+    "codex_turn_completed": true
+  },
+  "viral": {
+    "baseline": "account median",
+    "n": 3,
+    "accounts": 3,
+    "reels": [
+      {
+        "account": "@demo_b",
+        "followers": 4000,
+        "median": 3000,
+        "views": 180000,
+        "hook": "steal this four line follow up it took me two years",
+        "url": "https://example.com/reel/b",
+        "baseline_kind": "account median",
+        "baseline": 3000,
+        "outlier": 60.0,
+        "formula_id": 9,
+        "formula": "The Steal",
+        "words": 11,
+        "hook_score": 57.2,
+        "hook_verdict": "OK"
+      },
+      {
+        "account": "@demo_a",
+        "followers": 48000,
+        "median": 10000,
+        "views": 400000,
+        "hook": "nobody tells you your first 30 reels are supposed to flop",
+        "url": "https://example.com/reel/a",
+        "baseline_kind": "account median",
+        "baseline": 10000,
+        "outlier": 40.0,
+        "formula_id": 3,
+        "formula": "Nobody Tells You",
+        "words": 11,
+        "hook_score": 87.0,
+        "hook_verdict": "STRONG"
+      },
+      {
+        "account": "@demo_c",
+        "followers": 10000,
+        "median": 8000,
+        "views": 0,
+        "hook": "hey guys today I want to talk about content strategy",
+        "url": "https://example.com/reel/c",
+        "baseline_kind": "account median",
+        "baseline": 8000,
+        "outlier": 0.0,
+        "formula_id": null,
+        "formula": "unclassified",
+        "words": 10,
+        "hook_score": 9.6,
+        "hook_verdict": "WEAK"
+      }
+    ],
+    "top_formulas": [
+      [
+        "The Steal",
+        1
+      ]
+    ],
+    "top_hook_score": 57.2,
+    "bottom_hook_score": 9.6,
+    "top_words": 11,
+    "bottom_words": 10,
+    "unclassified": 1,
+    "codex_turn_completed": true
+  },
+  "reel": {
+    "text": "I cut 5 hours to 20 minutes.\nThat's my client proposal drafting time.\nI used one template.\n20 minutes. Save this.\n",
+    "hooks": [
+      {
+        "hook": "I cut 5 hours to 20 minutes.",
+        "checks": {
+          "LENGTH": {
+            "score": 100.0,
+            "detail": "7 words, 28 chars, ~2.5s spoken (want 5-12 words)"
+          },
+          "SPECIFICITY": {
+            "score": 100.0,
+            "detail": "2 concrete marker(s): 5 hours, 20 minutes"
+          },
+          "STAKES": {
+            "score": 70.0,
+            "detail": "1 tension marker(s): cut"
+          },
+          "FRONTLOAD": {
+            "score": 100.0,
+            "detail": "payload at word 2"
+          },
+          "ADDRESS": {
+            "score": 70.0,
+            "detail": "first person, no viewer named"
+          }
+        },
+        "weakest": "STAKES",
+        "flags": [],
+        "score": 80.8,
+        "verdict": "STRONG"
+      },
+      {
+        "hook": "Before: 5 hours. After: 20 minutes.",
+        "checks": {
+          "LENGTH": {
+            "score": 100.0,
+            "detail": "6 words, 35 chars, ~2.2s spoken (want 5-12 words)"
+          },
+          "SPECIFICITY": {
+            "score": 100.0,
+            "detail": "3 concrete marker(s): 5 hours, 20 minutes, After"
+          },
+          "STAKES": {
+            "score": 70.0,
+            "detail": "1 tension marker(s): before"
+          },
+          "FRONTLOAD": {
+            "score": 100.0,
+            "detail": "payload at word 1"
+          },
+          "ADDRESS": {
+            "score": 35.0,
+            "detail": "third person, nobody in the room"
+          }
+        },
+        "weakest": "ADDRESS",
+        "flags": [],
+        "score": 62.6,
+        "verdict": "OK"
+      },
+      {
+        "hook": "...and I cut it to 20 minutes.",
+        "checks": {
+          "LENGTH": {
+            "score": 100.0,
+            "detail": "7 words, 30 chars, ~2.5s spoken (want 5-12 words)"
+          },
+          "SPECIFICITY": {
+            "score": 75,
+            "detail": "1 concrete marker(s): 20 minutes"
+          },
+          "STAKES": {
+            "score": 70.0,
+            "detail": "1 tension marker(s): cut"
+          },
+          "FRONTLOAD": {
+            "score": 100.0,
+            "detail": "payload at word 3"
+          },
+          "ADDRESS": {
+            "score": 70.0,
+            "detail": "first person, no viewer named"
+          }
+        },
+        "weakest": "STAKES",
+        "flags": [],
+        "score": 77.8,
+        "verdict": "STRONG"
+      }
+    ],
+    "beats": {
+      "wpm": 165,
+      "target": 15.0,
+      "total_seconds": 7.64,
+      "total_words": 21,
+      "beats": [
+        {
+          "n": 1,
+          "start": 0.0,
+          "dur": 2.55,
+          "words": 7,
+          "text": "I cut 5 hours to 20 minutes.",
+          "concrete": 2,
+          "label": "HOOK",
+          "flags": []
+        },
+        {
+          "n": 2,
+          "start": 2.55,
+          "dur": 2.18,
+          "words": 6,
+          "text": "That's my client proposal drafting time.",
+          "concrete": 0,
+          "label": "MID",
+          "flags": []
+        },
+        {
+          "n": 3,
+          "start": 4.73,
+          "dur": 1.45,
+          "words": 4,
+          "text": "I used one template.",
+          "concrete": 0,
+          "label": "",
+          "flags": []
+        },
+        {
+          "n": 4,
+          "start": 6.18,
+          "dur": 1.45,
+          "words": 4,
+          "text": "20 minutes. Save this.",
+          "concrete": 2,
+          "label": "CTA",
+          "flags": []
+        }
+      ],
+      "notes": [
+        "Loops: the last beat repeats \"20, minutes\" from the hook. Second watches are free reach.",
+        "7.4s under target. Either add 20 words or shoot it short. Short is usually right."
+      ]
+    },
+    "detect": [
+      {
+        "source": ".\\results\\reel\\draft.txt",
+        "checks": {
+          "BURSTINESS": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SPECIFICITY": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SLOP DENSITY": {
+            "score": 100.0,
+            "detail": "0 stock terms, 0.0 per 100 words"
+          },
+          "FINGERPRINT": {
+            "score": 100.0,
+            "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+          },
+          "VOICE": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          }
+        },
+        "human_score": 62.0,
+        "verdict": "REVIEW"
+      },
+      {
+        "source": ".\\results\\reel\\script.txt",
+        "checks": {
+          "BURSTINESS": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SPECIFICITY": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          },
+          "SLOP DENSITY": {
+            "score": 100.0,
+            "detail": "0 stock terms, 0.0 per 100 words"
+          },
+          "FINGERPRINT": {
+            "score": 100.0,
+            "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+          },
+          "VOICE": {
+            "score": 50.0,
+            "detail": "too short to judge"
+          }
+        },
+        "human_score": 62.0,
+        "verdict": "REVIEW"
+      }
+    ],
+    "humanize": {
+      "text": "I cut 5 hours to 20 minutes.\nThat's my client proposal drafting time.\nI used one template.\n20 minutes. Save this.\n",
+      "report": {
+        "invisible": [],
+        "typographic": [],
+        "lexical": [],
+        "structures": []
+      }
+    },
+    "codex_turn_completed": true
+  }
+}

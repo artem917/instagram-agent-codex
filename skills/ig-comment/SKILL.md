@@ -1,13 +1,14 @@
 ---
 name: ig-comment
-description: >-
-  Write comments on other people's Instagram posts and reels that read as a
-  person with an opinion, not a bot. Use when the user pastes a post or a reel
-  and wants a comment, says "comment on this", "engage with this", "what do I
-  say here", or wants a batch for their daily engagement round.
+description: "Write comments on other people's Instagram posts and reels that read as a person with an opinion, not a bot. Use when the user pastes a post or a reel and wants a comment, says \"comment on this\", \"engage with this\", \"what do I say here\", or wants a batch for their daily engagement round."
+license: MIT
 ---
 
+
 # ig-comment
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Commenting is the highest-leverage twenty minutes on Instagram and the easiest
 to do badly. A comment near the top of a reel with 40,000 views is seen by more
@@ -61,7 +62,7 @@ Pick by what the post actually is. Never default to type 1.
 ## Output
 
 Give **two options of different types**, labelled, plus one line on which you
-would post and why. Run both through `/ig-human` first: comments are short, so
+would post and why. Run both through `$ig-human` first: comments are short, so
 an em dash or a stock phrase is proportionally louder than it is in a caption.
 
 ```
@@ -82,7 +83,8 @@ Post the first. It concedes something and it has a number in it.
 
 For an engagement round, ask for the 5 to 10 posts as pasted text in one
 message, return one comment each in a single block, and keep a running note in
-`~/.claude/instagram/log.md` of who has been commented on this week.
+`<data_dir>/log.md` of drafted comments this week. Mark actual posting only after the user
+confirms it; a drafted option is not a posted comment.
 Commenting on the same three accounts every day is visible and it looks like
 exactly what it is.
 

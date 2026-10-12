@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-plan"
+  short_description: "Build a weekly Instagram content plan"
+  default_prompt: "Use $ig-plan for my Instagram content task using the facts I provide."

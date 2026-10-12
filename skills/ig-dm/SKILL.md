@@ -1,14 +1,14 @@
 ---
 name: ig-dm
-description: >-
-  Write Instagram DMs that get replies - the keyword delivery, the first
-  message to someone who engaged, the collab pitch, and the two follow-ups. Use
-  when the user says "DM this person", "what do I send them", "outreach
-  message", "how do I follow up", "pitch this brand", or is reaching out to
-  someone specific.
+description: "Write Instagram DMs that get replies - the keyword delivery, the first message to someone who engaged, the collab pitch, and the two follow-ups. Use when the user says \"DM this person\", \"what do I send them\", \"outreach message\", \"how do I follow up\", \"pitch this brand\", or is reaching out to someone specific."
+license: MIT
 ---
 
+
 # ig-dm
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Instagram DMs are the only place on the platform where money actually changes
 hands, and they are also where most accounts burn the goodwill their content
@@ -114,5 +114,5 @@ Then stop. A third converts nobody and costs the relationship.
 ## Output
 
 The message, the character count, and the two follow-ups with the day each
-goes out, all run through `/ig-human`. The user sends every one of them by
+goes out, all run through `$ig-human`. The user sends every one of them by
 hand, or through their own approved automation for keyword replies only.

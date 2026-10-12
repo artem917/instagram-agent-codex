@@ -1,23 +1,22 @@
 ---
 name: ig-human
-description: >-
-  Strip the machine fingerprint out of any draft - em dashes, AI slop words,
-  invisible watermark characters - and score it against a five-check detection
-  panel before it goes out. Use whenever text needs to sound human, when the
-  user says humanize, "does this sound like AI", "remove the em dashes",
-  "de-slop this", "this sounds like ChatGPT", or before any caption, script,
-  comment, reply or DM is shown to the user.
+description: "Clean English drafts with a local slop lexicon, typographic substitutions and five heuristic checks. Use for humanizing captions, scripts, comments, replies or DMs, or requests to remove stock phrases or em dashes. Not a proven AI detector or Russian style processor."
+license: MIT
 ---
 
+
 # ig-human
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Two tools live in this folder and they both actually run. Use them. Do not
 eyeball this.
 
-```bash
-python3 humanize.py draft.txt --report        # clean it, show what changed
-python3 detect.py draft.txt                    # score it, five checks
-python3 detect.py before.txt after.txt         # prove the delta
+```text
+python "<skill_dir>/humanize.py" draft.txt --report        # clean it, show what changed
+python "<skill_dir>/detect.py" draft.txt                    # score it, five checks
+python "<skill_dir>/detect.py" before.txt after.txt         # prove the delta
 ```
 
 Both read `slop.json`: 154 stock words and phrases with plain-English
@@ -43,7 +42,8 @@ hyphens, byte-order marks, Unicode tag characters, invisible separators,
 non-breaking and narrow spaces. A keyboard does not produce these. They survive
 copy-paste, they are invisible in every editor, and they are the most
 mechanical thing in generated text. `humanize.py` deletes every one, including
-any remaining Unicode format character it does not have a name for.
+any remaining Unicode format character it does not have a name for. Review
+this pass: removing joiners can alter emoji sequences or non-English text.
 
 **2. Typography.** Em dash to comma, en dash to hyphen, curly quotes to
 straight, ellipsis to three dots, bullet character to hyphen. The em dash pass
@@ -95,9 +95,8 @@ below 55.
 These are five local heuristics modelled on the signals public detectors key
 on. They run entirely on the user's machine and nothing is uploaded. They are
 **not** GPTZero, Originality, Copyleaks, Winston or Turnitin, they do not call
-those APIs, and they cannot promise those verdicts. Fixing what they measure
-does tend to move those numbers, because they are measuring the same underlying
-things. That is the claim. Do not make a bigger one on the user's behalf, and
+those APIs, and they cannot promise those verdicts. Their relationship to third-party detector verdicts has not been verified
+by this port. Do not make a bigger one on the user's behalf, and
 do not tell a user their text is undetectable.
 
 ## Order of operations
@@ -108,4 +107,6 @@ do not tell a user their text is undetectable.
 4. If the verdict is not PASS, fix the weakest check named in the output and go
    again. Two rounds is normal. Five means the draft was written by formula,
    and the fix is a different draft, not more passes.
-5. Show the user the cleaned text and the score. Never the score alone.
+5. For short or non-English text, use the runtime guide's REVIEW/UNVERIFIED
+   boundary. Do not force a PASS by padding text or inventing specifics.
+6. Show the user the cleaned text and the score. Never the score alone.

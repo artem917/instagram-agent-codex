@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-comment"
+  short_description: "Draft comments from supplied Instagram posts"
+  default_prompt: "Use $ig-comment for my Instagram content task using the facts I provide."

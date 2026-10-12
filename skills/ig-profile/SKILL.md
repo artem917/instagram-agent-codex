@@ -1,14 +1,14 @@
 ---
 name: ig-profile
-description: >-
-  Score an Instagram profile out of 100 against a 12-part rubric and rewrite
-  the parts that lose points - name field, bio, link, highlights, pinned three,
-  grid. Use when the user says "optimize my profile", "fix my bio", "score my
-  Instagram", "why don't people follow me", or pastes their profile and asks how
-  it reads.
+description: "Score an Instagram profile out of 100 against a 12-part rubric and rewrite the parts that lose points - name field, bio, link, highlights, pinned three, grid. Use when the user says \"optimize my profile\", \"fix my bio\", \"score my Instagram\", \"why don't people follow me\", or pastes their profile and asks how it reads."
+license: MIT
 ---
 
+
 # ig-profile
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Almost everybody optimises the wrong thing here. The profile is not a
 storefront people browse. It is a **decision screen**, arrived at from one
@@ -74,9 +74,12 @@ readable in one glance.
 ## Output
 
 Score table, then the rewrites as copy-ready blocks in fix-first order, each
-run through `/ig-human`. Re-score at the end and show the delta honestly. If
+run through `$ig-human`. Re-score at the end and show the delta honestly. If
 the rewrite reaches 84 and not 98, say 84, and say what the rest needs, which
 is usually a grid, a story habit and a pinned post that does not exist yet.
 None of that is a rewrite.
+Label a score for proposed edits as hypothetical. Do not award points for
+unseen photos, grid changes or activity, and do not claim the live profile
+has changed merely because the copy has been drafted.
 
 Nothing is saved to Instagram by this skill. The user edits each field.

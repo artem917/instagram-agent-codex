@@ -1,30 +1,29 @@
 ---
 name: ig-reel
-description: >-
-  Write an Instagram Reel from a raw idea - hook options off 26 formulas, the
-  spoken script, the on-screen text, and a timed beat sheet - in the user's own
-  voice and scored before they shoot it. Use whenever the user wants a Reel, a
-  short-form video script, a hook, a voiceover, "make a reel about X", "what
-  should I say in this video", or is about to record and does not have the
-  first line yet.
+description: "Write an Instagram Reel from a raw idea - hook options off 26 formulas, the spoken script, the on-screen text, and a timed beat sheet - in the user's own voice and scored before they shoot it. Use whenever the user wants a Reel, a short-form video script, a hook, a voiceover, \"make a reel about X\", \"what should I say in this video\", or is about to record and does not have the first line yet."
+license: MIT
 ---
 
+
 # ig-reel
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Turns one raw idea into a Reel that somebody finishes.
 
 Two tools live in this folder and they both actually run. Use them. Do not
 eyeball the hook and do not guess at the length.
 
-```bash
-python3 hookscore.py hooks.txt              # rank your hook options
-python3 hookscore.py --hook "one line"      # score a single one
-python3 beats.py script.txt --target 30     # timed beat sheet before you shoot
+```text
+python "<skill_dir>/hookscore.py" hooks.txt              # rank your hook options
+python "<skill_dir>/hookscore.py" --hook "one line"      # score a single one
+python "<skill_dir>/beats.py" script.txt --target 30     # timed beat sheet before you shoot
 ```
 
 ## Before you write
 
-1. Read `~/.claude/instagram/voice.md` if it exists. That is the user's voice
+1. Read `<data_dir>/voice.md` if it exists. That is the user's voice
    profile: how they talk on camera, what they never say, who they are talking
    to. If it does not exist, ask for **three of their own reels**, transcribe or
    read them, infer the voice, and write the file. A script in the wrong voice
@@ -36,7 +35,7 @@ python3 beats.py script.txt --target 30     # timed beat sheet before you shoot
 3. If the idea is thin, do not pad it. Ask one batched question: what happened,
    to whom, and what did it cost or return. A Reel needs one specific true
    thing. Get it before writing.
-4. If `~/.claude/instagram/swipe.md` exists, read it. `/ig-viral` writes that
+4. If `<data_dir>/swipe.md` exists, read it. `$ig-viral` writes that
    file, and it is the user's own evidence about which formulas are working in
    their niche right now. It beats the defaults in this file.
 
@@ -75,8 +74,11 @@ rehearse.
 a hook past 3 seconds, any beat over 4 seconds, a run of beats with nothing
 concrete in them, no loop. Re-run until it is clean.
 
-**5. Humanize it.** Run the script through `/ig-human` before showing it. A
+**5. Humanize it.** Run the script through `$ig-human` before showing it. A
 written-sounding line is obvious the moment someone says it out loud.
+Re-run beats.py on the final wording; changes during humanization can alter
+the word count and timings. If the idea needs fewer words than the target,
+deliver it short with the actual estimate rather than padding or fabricating.
 
 **6. Print the block.** The script in a fenced block, the on-screen text as a
 separate list with timings, and then:
@@ -87,14 +89,14 @@ hook:       #3 Nobody Tells You, scored 86 STRONG
 length:     28.4s across 9 beats at 165 wpm
 on-screen:  6 cards
 humanizer:  4 artefacts stripped, human score 81 PASS
-caption:    run /ig-caption next
+caption:    run $ig-caption next
 
 Reply "yes" to log it, or tell me what to change.
 ```
 
 **7. Never publish.** This skill produces a script. The user shoots it and
-posts it. On "yes", append to `~/.claude/instagram/log.md` with the date, the
-hook formula used and the first line, so `/ig-audit` has a history later.
+posts it. On "yes", append to `<data_dir>/log.md` with the date, the
+hook formula used and the first line, so `$ig-audit` has a history later.
 
 ## On-screen text is a separate script
 
@@ -130,7 +132,7 @@ Write it separately, every time. It is read before it is heard.
 ## Example
 
 ```
-/ig-reel we cut proposal time from 5 hours to 20 minutes with one template
+$ig-reel we cut proposal time from 5 hours to 20 minutes with one template
 ```
 
 ```

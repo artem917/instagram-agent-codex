@@ -16,12 +16,13 @@ Each check returns a HUMAN score from 0 to 100. Higher is better.
 
 Usage
   python3 detect.py draft.txt
-  pbpaste | python3 detect.py -
+  # macOS clipboard (optional): pbpaste | python3 detect.py -
   python3 detect.py draft.txt --json
   python3 detect.py before.txt after.txt      # compare two drafts
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
 import os
 import re
@@ -198,8 +199,8 @@ def main():
     ap.add_argument("--lexicon", default=LEX)
     args = ap.parse_args()
 
-    lex = json.load(open(args.lexicon, encoding="utf-8"))
-    read = lambda p: sys.stdin.read() if p == "-" else open(p, encoding="utf-8").read()
+    lex = json.loads(read_text(args.lexicon))
+    read = lambda p: read_text(p)
 
     targets = [(args.input, read(args.input))]
     if args.compare:
@@ -217,7 +218,7 @@ def main():
 
     if args.json:
         print(json.dumps(payload if args.compare else payload[0], indent=2))
-        return
+        sys.exit(0 if payload[-1]["verdict"] == "PASS" else 1)
 
     for (name, text), p in zip(targets, payload):
         results, overall, verdict = run(text, lex)
@@ -232,4 +233,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

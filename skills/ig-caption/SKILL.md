@@ -1,20 +1,20 @@
 ---
 name: ig-caption
-description: >-
-  Write the Instagram caption - the line that survives the "... more" cut, the
-  body, the single ask, the search terms and the three hashtags - and lint it
-  before it goes out. Use when the user says "write the caption", "caption this",
-  "what do I put in the description", has a reel or a carousel ready and needs
-  the text, or asks about hashtags.
+description: "Write the Instagram caption - the line that survives the \"... more\" cut, the body, the single ask, the search terms and the three hashtags - and lint it before it goes out. Use when the user says \"write the caption\", \"caption this\", \"what do I put in the description\", has a reel or a carousel ready and needs the text, or asks about hashtags."
+license: MIT
 ---
+
 
 # ig-caption
 
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
+
 One tool lives in this folder and it runs:
 
-```bash
-python3 caption.py caption.txt
-python3 caption.py caption.txt --keywords "client proposals,agency pricing"
+```text
+python "<skill_dir>/caption.py" caption.txt
+python "<skill_dir>/caption.py" caption.txt --keywords "client proposals,agency pricing"
 ```
 
 It prints the caption the way the feed prints it: the first 125 characters in a
@@ -77,8 +77,8 @@ that reads normally. "Client proposals" as words in line three, not
 
 Ask for two or three of those terms, then pass them to the linter:
 
-```bash
-python3 caption.py draft.txt --keywords "client proposals,agency pricing"
+```text
+python "<skill_dir>/caption.py" draft.txt --keywords "client proposals,agency pricing"
 ```
 
 ## Rules
@@ -100,7 +100,7 @@ python3 caption.py draft.txt --keywords "client proposals,agency pricing"
 
 1. Decide Job A or Job B and say which.
 2. Draft it.
-3. Run `/ig-human` on it. Captions are short, so slop is louder here than
+3. Run `$ig-human` on it. Captions are short, so slop is louder here than
    anywhere else in the pack.
 4. Run `caption.py` with the user's search terms. Fix every FAIL. Decide on
    every WARN out loud rather than silently.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-dm"
+  short_description: "Draft personal DMs and bounded follow-ups"
+  default_prompt: "Use $ig-dm for my Instagram content task using the facts I provide."

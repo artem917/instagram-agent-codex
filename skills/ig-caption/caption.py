@@ -17,11 +17,12 @@ with --truncate if you want to test a tighter one.
 Usage
   python3 caption.py caption.txt
   python3 caption.py caption.txt --keywords "proposal software,client contract"
-  pbpaste | python3 caption.py -
+  # macOS clipboard (optional): pbpaste | python3 caption.py -
   python3 caption.py caption.txt --json
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
 import re
 import sys
@@ -201,7 +202,9 @@ def main():
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
-    raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+    if args.truncate <= 0:
+        ap.error("--truncate must be positive")
+    raw = read_text(args.input)
     a = analyse(raw, cut=args.truncate, keywords=args.keywords.split(","))
     if args.json:
         print(json.dumps(a, indent=2, ensure_ascii=False))
@@ -211,4 +214,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

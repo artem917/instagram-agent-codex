@@ -1,14 +1,14 @@
 ---
 name: ig-story
-description: >-
-  Write the day's Instagram Stories - the frame-by-frame sequence, which
-  stickers to use where, and the one that moves people into the DMs. Use when
-  the user says "stories", "what do I post on my story", "story sequence",
-  "poll idea", "I have nothing to story about", or wants to sell something
-  without making a post about it.
+description: "Write the day's Instagram Stories - the frame-by-frame sequence, which stickers to use where, and the one that moves people into the DMs. Use when the user says \"stories\", \"what do I post on my story\", \"story sequence\", \"poll idea\", \"I have nothing to story about\", or wants to sell something without making a post about it."
+license: MIT
 ---
 
+
 # ig-story
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Stories are not a smaller feed. The feed is how strangers find you. Stories are
 how the people who already follow you decide whether you are a person worth
@@ -47,7 +47,7 @@ ask should be seen by the people who are still there.
 
 The question box is the most undervalued one in the list. Every answer is a
 caption, a Reel hook or a DM opener written in the audience's own words. Feed
-them to `/ig-reel` as formula #16.
+them to `$ig-reel` as formula #16.
 
 ## Rules
 

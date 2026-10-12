@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/Jakeschincariol/instagram-agent-skill",
+  "commit": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Jake Schincariol",
+  "preserved_sha256_lf": {
+    "LICENSE": "857c8d5276809c8196b3cd7cb3300324768bfc562b2b6281b06d6865058e186c",
+    "skills/ig-reel/hooks.json": "147230762fd9e17cf58302913cb97069b3a3c7edae211b3b0196c180adf1412f",
+    "skills/ig-human/slop.json": "987dedae2008742c04ba8e2728f9149f67dc6a665beba891731d6e048abdab2d",
+    "skills/ig-profile/rubric.json": "962085d9157b553386f1f62d90fa54ff1d4acae53a2e08b8372464beda49047a"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-caption"
+  short_description: "Draft captions and run the local caption linter"
+  default_prompt: "Use $ig-caption for my Instagram content task using the facts I provide."

@@ -1,24 +1,22 @@
 ---
 name: ig-viral
-description: >-
-  Go and find the reels that are actually working right now in the user's
-  niche, rank them by how far each beat its own account, name the hook formula
-  each one used, and turn that into a swipe file they can shoot from. Use when
-  the user says "find viral videos", "what's working right now", "what are
-  people posting in my niche", "reverse engineer this account", "build me a
-  swipe file", "why is this reel doing numbers", or asks what to make next and
-  has no evidence to answer with.
+description: "Go and find the reels that are actually working right now in the user's niche, rank them by how far each beat its own account, name the hook formula each one used, and turn that into a swipe file they can shoot from. Use when the user says \"find viral videos\", \"what's working right now\", \"what are people posting in my niche\", \"reverse engineer this account\", \"build me a swipe file\", \"why is this reel doing numbers\", or asks what to make next and has no evidence to answer with."
+license: MIT
 ---
 
+
 # ig-viral
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 The research skill. Everything else in this pack writes; this one goes and
 looks. Run it monthly, not daily. Formulas last a season.
 
 One tool lives in this folder and it runs:
 
-```bash
-python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+```text
+python "<skill_dir>/swipe.py" captured.tsv --out "<data_dir>/swipe.md"
 ```
 
 ## The one idea that makes this worth doing
@@ -81,6 +79,9 @@ small enough to read.
 | length | seconds |
 | cta | what they asked for at the end |
 
+Use exact integer counts in TSV (for example 412000 or 412,000),
+not abbreviated 412K/1.2M. Record URLs, capture date and the baseline's sample
+size as additional columns when available; the script preserves them in JSON.
 Median is the important one. Without it you are back to ranking by follower
 count, which is the thing this skill exists to stop.
 
@@ -89,14 +90,17 @@ YouTube Shorts, where view counts and transcripts are public and no login is
 involved. It is a legitimate second corpus, and the spoken hook is easier to
 get:
 
-```bash
+The following optional examples require separately installed `yt-dlp`,
+network access and user authorization. It is not bundled, required or
+installed by this pack. Use pasted transcripts/counts when unavailable.
+These are shell-neutral one-line commands (use python3 on macOS/Linux).
+
+```text
 # view counts for a channel's shorts
-python3 -m yt_dlp --flat-playlist --playlist-end 40 -J \
-  "https://www.youtube.com/@HANDLE/shorts" > channel.json
+python -m yt_dlp --flat-playlist --playlist-end 40 -J "https://www.youtube.com/@HANDLE/shorts" > channel.json
 
 # the spoken first line of one short, from its auto-captions
-python3 -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" \
-  --sub-format json3 -o hook "https://www.youtube.com/watch?v=VIDEO_ID"
+python -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" --sub-format json3 -o hook "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
 Take every caption word with a timestamp under 3.0 seconds. That is the hook,
@@ -111,12 +115,12 @@ account	followers	median	views	hook
 @someone	48000	11000	412000	nobody tells you your first 30 reels are supposed to flop
 ```
 
-```bash
-python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+```text
+python "<skill_dir>/swipe.py" captured.tsv --out "<data_dir>/swipe.md"
 ```
 
 It computes the outlier multiple, names the hook formula using the same 26
-formulas `/ig-reel` writes from, scores each hook with `hookscore.py`, and
+formulas `$ig-reel` writes from, scores each hook with `hookscore.py`, and
 prints what separates the top third from the bottom third.
 
 ## Step 4: say what it means, carefully
@@ -130,7 +134,7 @@ Report three things and no more:
    not: hook length, whether the payoff is visual, whether the first frame
    moves, where the ask is.
 3. **The unclassified rows.** Every hook the classifier could not name is
-   either noise or a formula that is not in `hooks.json` yet. Read them by
+either noise or a formula that is not in `../ig-reel/hooks.json` yet. Read them by
    hand. This is the most valuable column in the output and it is the reason
    the script prints the count.
 
@@ -141,7 +145,7 @@ difference between research and horoscopes.
 ## Step 5: turn it into something to shoot
 
 For the top three formulas, write **the user's version**: their own story,
-their own number, in the shape that is working. Hand each one to `/ig-reel`
+their own number, in the shape that is working. Hand each one to `$ig-reel`
 with the formula id already chosen.
 
 Never hand back "make a reel like this one". Hand back a hook line they could
@@ -171,8 +175,8 @@ YOUR VERSION
   ...
 ```
 
-Write the swipe file to `~/.claude/instagram/swipe.md`. `/ig-reel` and
-`/ig-plan` both read it, which is the point: after this runs once, the rest of
+Write the swipe file to `<data_dir>/swipe.md`. `$ig-reel` and
+`$ig-plan` both read it, which is the point: after this runs once, the rest of
 the pack is working from the user's own evidence instead of from defaults.
 
 Nothing is posted, followed, liked or messaged by this skill. It reads.

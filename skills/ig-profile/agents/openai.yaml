@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-profile"
+  short_description: "Score a supplied profile and draft improvements"
+  default_prompt: "Use $ig-profile for my Instagram content task using the facts I provide."

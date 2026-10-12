@@ -21,12 +21,13 @@ so that is the model's job, not a regex's.
 Usage
   python3 humanize.py draft.txt
   python3 humanize.py draft.txt --report
-  pbpaste | python3 humanize.py - --report
+  # macOS clipboard (optional): pbpaste | python3 humanize.py - --report
   python3 humanize.py draft.txt --json
   python3 humanize.py draft.txt -o clean.txt
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
 import os
 import re
@@ -41,7 +42,7 @@ SENT_RE = re.compile(r"[^.!?\n]+[.!?]*")
 
 
 def load_lexicon(path=LEX):
-    with open(path, encoding="utf-8") as fh:
+    with resolve_path(path).open(encoding="utf-8-sig") as fh:
         return json.load(fh)
 
 
@@ -262,7 +263,7 @@ def main():
     ap.add_argument("--lexicon", default=LEX, help="path to slop.json")
     args = ap.parse_args()
 
-    raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+    raw = read_text(args.input)
     lex = load_lexicon(args.lexicon)
     clean, report = humanize(raw, lex)
 
@@ -270,8 +271,7 @@ def main():
         print(json.dumps({"text": clean, "report": report}, indent=2, ensure_ascii=False))
         return
     if args.out:
-        with open(args.out, "w", encoding="utf-8") as fh:
-            fh.write(clean)
+        write_text(args.out, clean)
         print(f"wrote {args.out}", file=sys.stderr)
     else:
         sys.stdout.write(clean)
@@ -280,4 +280,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

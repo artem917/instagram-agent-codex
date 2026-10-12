@@ -21,11 +21,12 @@ If you only have `followers`, leave median out and the script says so.
 
 Usage
   python3 swipe.py captured.tsv
-  python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+  python3 swipe.py captured.tsv --out ~/.codex/instagram/swipe.md
   python3 swipe.py captured.tsv --json
 """
 
 import argparse
+from ig_io import cli, read_text, resolve_path, write_text
 import json
 import os
 import re
@@ -39,14 +40,14 @@ WORD_RE = re.compile(r"[A-Za-z0-9$%'’-]+")
 try:                                              # optional: score the hooks too
     sys.path.insert(0, os.path.join(HERE, "..", "ig-reel"))
     from hookscore import run as score_hook       # noqa: E402
-except Exception:                                 # ig-viral copied on its own
+except ImportError:                               # ig-viral copied on its own
     score_hook = None
 
 
 def load_formulas(path):
     try:
-        d = json.load(open(path, encoding="utf-8"))
-    except Exception:
+        d = json.loads(read_text(path))
+    except FileNotFoundError:
         return None
     by_id = {h["id"]: h for h in d["hooks"]}
     order = d.get("classify_order") or sorted(by_id)
@@ -64,7 +65,7 @@ def classify(hook, formulas):
 
 
 def read_rows(path):
-    raw = sys.stdin.read() if path == "-" else open(path, encoding="utf-8").read()
+    raw = read_text(path)
     lines = [l for l in raw.splitlines() if l.strip() and not l.lstrip().startswith("#")]
     if not lines:
         return []
@@ -79,22 +80,28 @@ def read_rows(path):
         if len(cells) < len(cols):
             cells += [""] * (len(cols) - len(cells))
         r = dict(zip(cols, [c.strip() for c in cells]))
-        try:
-            r["views"] = int(re.sub(r"[^\d]", "", r.get("views", "")) or 0)
-        except ValueError:
-            continue
-        for k in ("followers", "median"):
-            digits = re.sub(r"[^\d]", "", r.get(k, "") or "")
-            r[k] = int(digits) if digits else None
-        if r["views"] and r.get("hook"):
+        def count(value, field):
+            value = value.strip().replace(",", "").replace(" ", "").replace("\u00a0", "")
+            if not value:
+                return None
+            if not re.fullmatch(r"[0-9]+", value):
+                raise ValueError(f"{field}: use an exact non-negative integer, got {value!r}")
+            return int(value)
+
+        for key in ("views", "followers", "median"):
+            r[key] = count(r.get(key, "") or "", key)
+        if r["views"] is not None and r.get("hook"):
             rows.append(r)
     return rows
 
 
 def analyse(rows, formulas):
-    used_median = any(r.get("median") for r in rows)
+    kinds = set()
     for r in rows:
         base = r.get("median") or r.get("followers") or 0
+        r["baseline_kind"] = "account median" if r.get("median") else (
+            "follower count" if r.get("followers") else "unknown")
+        kinds.add(r["baseline_kind"])
         r["baseline"] = base
         r["outlier"] = round(r["views"] / base, 2) if base else None
         r["formula_id"], r["formula"] = classify(r["hook"], formulas)
@@ -116,7 +123,7 @@ def analyse(rows, formulas):
     for r in top:
         counts[r["formula"]] = counts.get(r["formula"], 0) + 1
     return {
-        "baseline": "account median" if used_median else "follower count",
+        "baseline": next(iter(kinds)) if len(kinds) == 1 else "mixed (" + " / ".join(sorted(kinds)) + ")",
         "n": len(ranked),
         "accounts": len({r.get("account", "") for r in ranked}),
         "reels": ranked,
@@ -135,7 +142,7 @@ def render(a, out=sys.stdout):
     print("\n" + head, file=out)
     print("=" * max(len(head), 78), file=out)
     for r in a["reels"]:
-        mult = f"{r['outlier']:.1f}x" if r["outlier"] else "   ?"
+        mult = f"{r['outlier']:.1f}x" if r["outlier"] is not None else "   ?"
         score = f"{r['hook_score']:.0f}" if r["hook_score"] is not None else " -"
         fid = f"#{r['formula_id']:<2}" if r["formula_id"] else "-  "
         print(f"  {mult:>7}  hook {score:>3}  {fid} {r['formula'][:22]:<22} "
@@ -163,7 +170,7 @@ def to_markdown(a):
              f"{a['n']} reels across {a['accounts']} accounts. "
              f"Ranked by multiple over {a['baseline']}.", ""]
     for r in a["reels"]:
-        mult = f"{r['outlier']:.1f}x" if r["outlier"] else "?"
+        mult = f"{r['outlier']:.1f}x" if r["outlier"] is not None else "?"
         lines += [f"## {mult}  {r['formula']}  ({r.get('account', '')})",
                   f"- views: {r['views']:,}  baseline: {r['baseline']:,}",
                   f"- hook score: {r['hook_score']}  words: {r['words']}",
@@ -186,6 +193,8 @@ def main():
         sys.exit(2)
     formulas = load_formulas(args.hooks)
     a = analyse(rows, formulas)
+    if a["baseline"].startswith("mixed"):
+        print("note: mixed baselines; follower ratios are not comparable to account-median outliers.", file=sys.stderr)
     if not formulas:
         print("note: hooks.json not found, formulas not named. Pass --hooks.", file=sys.stderr)
     if score_hook is None:
@@ -196,11 +205,9 @@ def main():
     else:
         render(a)
     if args.out:
-        path = os.path.expanduser(args.out)
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        open(path, "w", encoding="utf-8").write(to_markdown(a))
+        path = write_text(args.out, to_markdown(a))
         print(f"wrote {path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
-    main()
+    cli(main)

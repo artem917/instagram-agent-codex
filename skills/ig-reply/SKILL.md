@@ -1,13 +1,14 @@
 ---
 name: ig-reply
-description: >-
-  Handle the comments under the user's own reels and posts - draft replies to
-  the ones worth answering, sorted by which ones are. Use when the user pastes
-  their comments, says "reply to these", "handle my comments", "someone said X
-  on my reel", or is dealing with a critic, a hater or a lead in the comments.
+description: "Handle the comments under the user's own reels and posts - draft replies to the ones worth answering, sorted by which ones are. Use when the user pastes their comments, says \"reply to these\", \"handle my comments\", \"someone said X on my reel\", or is dealing with a critic, a hater or a lead in the comments."
+license: MIT
 ---
 
+
 # ig-reply
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 The comment thread under your own post is where reach is decided. Every reply
 is another interaction on the post, replies arriving in the first hour do most
@@ -43,7 +44,7 @@ If a question in the comments is one that thirty other people also have,
 **reply to it with a Reel**. Instagram will attach the comment to the new video
 as a sticker, the person who asked gets notified, and a question with real
 demand behind it becomes a post with the hook already written for you. Flag
-every QUESTION that qualifies and hand it to `/ig-reel` as formula #16.
+every QUESTION that qualifies and hand it to `$ig-reel` as formula #16.
 
 ## How to reply
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ig-reply"
+  short_description: "Triage supplied comments and draft replies"
+  default_prompt: "Use $ig-reply for my Instagram content task using the facts I provide."

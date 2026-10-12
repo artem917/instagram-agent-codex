@@ -1,13 +1,14 @@
 ---
 name: ig-carousel
-description: >-
-  Build an Instagram carousel - the cover that earns the swipe, slide-by-slide
-  copy, and the 1080x1350 files to upload. Use when the user says "carousel",
-  "slides", "swipe post", "turn this into a carousel", or has a list-shaped or
-  step-shaped idea that would die as a single image.
+description: "Build an Instagram carousel - the cover that earns the swipe, slide-by-slide copy, and HTML slide layouts; PNG/JPEG export needs an available renderer. Use when the user says \"carousel\", \"slides\", \"swipe post\", \"turn this into a carousel\", or has a list-shaped or step-shaped idea that would die as a single image."
+license: MIT
 ---
 
+
 # ig-carousel
+
+First read [the Codex runtime guide](references/codex.md) for resource paths,
+voice/data handling, execution limits and truthful test reporting.
 
 Carousels are the highest-dwell format on the grid, because a swipe is an
 interaction and a scroll is not. They also get a second chance: Instagram can
@@ -24,7 +25,7 @@ framework with parts, a before and after, a list worth screenshotting. Use a
 Reel when the idea has motion, a face, or a payoff that has to be seen
 happening.
 
-If the idea is one claim, it is neither. Hand it to `/ig-reel` and say so.
+If the idea is one claim, it is neither. Hand it to `$ig-reel` and say so.
 
 ## Structure
 
@@ -62,13 +63,13 @@ LAST      CTA       one action. Save, comment a keyword, or follow. One.
 
 ## Building the files
 
-Instagram wants 1080x1350 (4:5), JPEG or PNG, up to 20 items. Build it as HTML
-and print each slide:
-
-```bash
-# one <section> per slide, 1080x1350, page-break-after: always
-# then Chrome headless --print-to-pdf, or any HTML-to-image you already use
-```
+Prepare one HTML section per slide at 1080x1350 (4:5), using local assets.
+Export each section as a PNG/JPEG only if this session has a browser screenshot
+or another already-available image renderer. Verify the actual image dimensions
+and inspect every exported slide. A PDF from Chrome --print-to-pdf is a review
+artifact, not an Instagram image upload. No renderer is bundled by this pack.
+If image export is unavailable, deliver the copy and HTML and mark PNG/JPEG
+export UNVERIFIED; do not claim upload-ready image files exist.
 
 Write the HTML with `width:1080px; height:1350px`, a single accent colour, and
 type no smaller than 32px, because this is read on a phone at a third of its
@@ -79,10 +80,10 @@ not invent a palette.
 
 The slide-by-slide copy first, as a numbered list the user can read in ten
 seconds and edit before anything is rendered. Then the **caption**, which for a
-carousel is Job B in `/ig-caption`: the caption is doing work here, because the
+carousel is Job B in `$ig-caption`: the caption is doing work here, because the
 cover has already used its six words.
 
-Run both through `/ig-human`. Build the files only after the user approves the
+Run both through `$ig-human`. Build the files only after the user approves the
 copy.
 
 ```

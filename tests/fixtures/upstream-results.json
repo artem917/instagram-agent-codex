@@ -1,0 +1,417 @@
+{
+  "upstream_commit": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+  "note": "Synthetic examples evaluated by the pinned upstream algorithms; no external detector/virality claims.",
+  "hooks": [
+    {
+      "text": "I lost $18,000 on one missing clause.",
+      "result": [
+        {
+          "LENGTH": [
+            100.0,
+            "7 words, 37 chars, ~2.5s spoken (want 5-12 words)"
+          ],
+          "SPECIFICITY": [
+            75,
+            "1 concrete marker(s): $18,000"
+          ],
+          "STAKES": [
+            100.0,
+            "2 tension marker(s): lost, a price"
+          ],
+          "FRONTLOAD": [
+            100.0,
+            "payload at word 2"
+          ],
+          "ADDRESS": [
+            70.0,
+            "first person, no viewer named"
+          ]
+        },
+        81.4,
+        "STRONG",
+        []
+      ]
+    },
+    {
+      "text": "Stop wasting five hours on your proposals.",
+      "result": [
+        {
+          "LENGTH": [
+            100.0,
+            "7 words, 42 chars, ~2.5s spoken (want 5-12 words)"
+          ],
+          "SPECIFICITY": [
+            75,
+            "1 concrete marker(s): five"
+          ],
+          "STAKES": [
+            70.0,
+            "1 tension marker(s): stop"
+          ],
+          "FRONTLOAD": [
+            100.0,
+            "payload at word 1"
+          ],
+          "ADDRESS": [
+            100.0,
+            "speaks to the viewer"
+          ]
+        },
+        81.4,
+        "STRONG",
+        []
+      ]
+    },
+    {
+      "text": "Hey guys, today I wanted to talk about content strategy.",
+      "result": [
+        {
+          "LENGTH": [
+            100.0,
+            "10 words, 56 chars, ~3.6s spoken (want 5-12 words)"
+          ],
+          "SPECIFICITY": [
+            15.0,
+            "0 concrete marker(s) - no number, no name, nothing checkable"
+          ],
+          "STAKES": [
+            20.0,
+            "0 tension marker(s) - nothing is at stake in this line"
+          ],
+          "FRONTLOAD": [
+            0.0,
+            "no payload word anywhere in the line; weak opener \"hey\""
+          ],
+          "ADDRESS": [
+            70.0,
+            "first person, no viewer named"
+          ]
+        },
+        9.599999999999998,
+        "WEAK",
+        [
+          "Greeting. Nobody came to the feed to be greeted."
+        ]
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "text": "I lost $18,000 on one missing clause.\nSection 4. Payment on delivery.\nApproval took 9 days.\nDelivery has a date.\nSave this $18,000 clause.\n",
+      "result": {
+        "wpm": 165,
+        "target": 30,
+        "total_seconds": 8.73,
+        "total_words": 24,
+        "beats": [
+          {
+            "n": 1,
+            "start": 0.0,
+            "dur": 2.55,
+            "words": 7,
+            "text": "I lost $18,000 on one missing clause.",
+            "concrete": 2,
+            "label": "HOOK",
+            "flags": []
+          },
+          {
+            "n": 2,
+            "start": 2.55,
+            "dur": 1.82,
+            "words": 5,
+            "text": "Section 4. Payment on delivery.",
+            "concrete": 2,
+            "label": "MID",
+            "flags": []
+          },
+          {
+            "n": 3,
+            "start": 4.36,
+            "dur": 1.45,
+            "words": 4,
+            "text": "Approval took 9 days.",
+            "concrete": 1,
+            "label": "MID",
+            "flags": []
+          },
+          {
+            "n": 4,
+            "start": 5.82,
+            "dur": 1.45,
+            "words": 4,
+            "text": "Delivery has a date.",
+            "concrete": 0,
+            "label": "",
+            "flags": []
+          },
+          {
+            "n": 5,
+            "start": 7.27,
+            "dur": 1.45,
+            "words": 4,
+            "text": "Save this $18,000 clause.",
+            "concrete": 2,
+            "label": "CTA",
+            "flags": []
+          }
+        ],
+        "notes": [
+          "Loops: the last beat repeats \"$18,000, clause\" from the hook. Second watches are free reach.",
+          "21.3s under target. Either add 58 words or shoot it short. Short is usually right."
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "I saved 5 hours on client proposals.\n\nHere's the exact template I used.\nSave this.\n\n#proposals #freelance #pricing\n",
+      "result": {
+        "characters": 114,
+        "limit": 2200,
+        "truncate_at": 125,
+        "visible": "I saved 5 hours on client proposals.\n\nHere's the exact template I used.\nSave this.\n\n#proposals #freelance #pricing",
+        "truncated": false,
+        "first_line_chars": 36,
+        "hashtags": [
+          "#proposals",
+          "#freelance",
+          "#pricing"
+        ],
+        "mentions": [],
+        "links": [],
+        "emoji": 0,
+        "asks": [
+          "save this"
+        ],
+        "checks": [
+          {
+            "check": "LENGTH",
+            "status": "PASS",
+            "detail": "114 / 2200 characters"
+          },
+          {
+            "check": "FIRST LINE",
+            "status": "PASS",
+            "detail": "36 characters, lands whole"
+          },
+          {
+            "check": "HOOK IS CONCRETE",
+            "status": "PASS",
+            "detail": "1 number(s) or name(s) in the visible window"
+          },
+          {
+            "check": "HASHTAGS",
+            "status": "PASS",
+            "detail": "3 tag(s): #proposals #freelance #pricing"
+          },
+          {
+            "check": "TAG PLACEMENT",
+            "status": "WARN",
+            "detail": "a hashtag is inside the visible window, spending feed space on a label"
+          },
+          {
+            "check": "LINKS",
+            "status": "PASS",
+            "detail": "no dead links in the body"
+          },
+          {
+            "check": "ONE ASK",
+            "status": "PASS",
+            "detail": "one call to action: save this"
+          },
+          {
+            "check": "EMOJI",
+            "status": "PASS",
+            "detail": "0 emoji, 0.0 per 100 characters"
+          }
+        ],
+        "verdict": "REVIEW"
+      }
+    },
+    {
+      "text": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "result": {
+        "characters": 2201,
+        "limit": 2200,
+        "truncate_at": 125,
+        "visible": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "truncated": true,
+        "first_line_chars": 2201,
+        "hashtags": [],
+        "mentions": [],
+        "links": [],
+        "emoji": 0,
+        "asks": [],
+        "checks": [
+          {
+            "check": "LENGTH",
+            "status": "FAIL",
+            "detail": "2201 / 2200 characters, 1 over the limit"
+          },
+          {
+            "check": "FIRST LINE",
+            "status": "WARN",
+            "detail": "2201 characters, so it gets cut at 125 mid-thought. Fine if the cut is a cliffhanger, bad if it is a subordinate clause"
+          },
+          {
+            "check": "HOOK IS CONCRETE",
+            "status": "WARN",
+            "detail": "0 number(s) or name(s) in the visible window - nothing checkable before the tap"
+          },
+          {
+            "check": "HASHTAGS",
+            "status": "PASS",
+            "detail": "0 tag(s)"
+          },
+          {
+            "check": "TAG PLACEMENT",
+            "status": "PASS",
+            "detail": "no tags to place"
+          },
+          {
+            "check": "LINKS",
+            "status": "PASS",
+            "detail": "no dead links in the body"
+          },
+          {
+            "check": "ONE ASK",
+            "status": "WARN",
+            "detail": "no call to action. Decide what this post is for"
+          },
+          {
+            "check": "EMOJI",
+            "status": "PASS",
+            "detail": "0 emoji, 0.0 per 100 characters"
+          }
+        ],
+        "verdict": "FIX"
+      }
+    }
+  ],
+  "humanize": [
+    {
+      "text": "In today's fast-paced world, it's crucial to leverage robust strategies — seamless results await.\nI paid $40 in March. It failed.\nI spent 3 hours fixing my own mistake, and I'm keeping the receipt because I don't want to pay twice.\n“Small changes”… matter. https://example.com/leverage\n",
+      "result": [
+        "Right now, it's important to use solid strategies, clean results await.\nI paid $40 in March. It failed.\nI spent 3 hours fixing my own mistake, and I'm keeping the receipt because I don't want to pay twice.\n\"Small changes\"... Matter. https://example.com/leverage\n",
+        {
+          "invisible": [],
+          "typographic": [
+            {
+              "name": "— EM DASH",
+              "count": 1,
+              "to": ","
+            },
+            {
+              "name": "“ LEFT DOUBLE QUOTE",
+              "count": 1,
+              "to": "\""
+            },
+            {
+              "name": "” RIGHT DOUBLE QUOTE",
+              "count": 1,
+              "to": "\""
+            },
+            {
+              "name": "… HORIZONTAL ELLIPSIS",
+              "count": 1,
+              "to": "..."
+            }
+          ],
+          "lexical": [
+            {
+              "find": "in today's fast-paced world",
+              "replace": "right now",
+              "count": 1,
+              "family": "openers"
+            },
+            {
+              "find": "leverage",
+              "replace": "use",
+              "count": 1,
+              "family": "verbs"
+            },
+            {
+              "find": "seamless",
+              "replace": "clean",
+              "count": 1,
+              "family": "adjectives"
+            },
+            {
+              "find": "crucial",
+              "replace": "important",
+              "count": 1,
+              "family": "adjectives"
+            },
+            {
+              "find": "robust",
+              "replace": "solid",
+              "count": 1,
+              "family": "adjectives"
+            }
+          ],
+          "structures": []
+        }
+      ]
+    }
+  ],
+  "detect": [
+    {
+      "text": "In today's fast-paced world, it's crucial to leverage robust strategies — seamless results await.\nI paid $40 in March. It failed.\nI spent 3 hours fixing my own mistake, and I'm keeping the receipt because I don't want to pay twice.\n“Small changes”… matter. https://example.com/leverage\n",
+      "result": [
+        {
+          "BURSTINESS": [
+            90.55284806416194,
+            "variation 0.65 across 4 sentences (want 0.55+)"
+          ],
+          "SPECIFICITY": [
+            100.0,
+            "4 concrete markers, 8.7 per 100 words (want 4+)"
+          ],
+          "SLOP DENSITY": [
+            0.0,
+            "6 stock terms, 13.0 per 100 words (crucial, in today's fast-paced world, leverage, robust, ...)"
+          ],
+          "FINGERPRINT": [
+            0.0,
+            "0 invisible, 1 em dash, 2 curly quote, 1 ellipsis, 0 hard space"
+          ],
+          "VOICE": [
+            100.0,
+            "8.7 contractions, 10.9 personal pronouns per 100 words, 0 structural tell(s)"
+          ]
+        },
+        34.86634176769943,
+        "FLAGGED"
+      ]
+    },
+    {
+      "text": "I paid 40 dollars.",
+      "result": [
+        {
+          "BURSTINESS": [
+            50.0,
+            "too short to judge"
+          ],
+          "SPECIFICITY": [
+            50.0,
+            "too short to judge"
+          ],
+          "SLOP DENSITY": [
+            100.0,
+            "0 stock terms, 0.0 per 100 words"
+          ],
+          "FINGERPRINT": [
+            100.0,
+            "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+          ],
+          "VOICE": [
+            50.0,
+            "too short to judge"
+          ]
+        },
+        62.0,
+        "REVIEW"
+      ]
+    }
+  ]
+}
