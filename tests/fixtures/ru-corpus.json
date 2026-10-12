@@ -1,0 +1,692 @@
+{
+  "version": 1,
+  "language": "ru",
+  "provenance": "64 synthetic examples authored for regression, not a representative or independently human-annotated benchmark.",
+  "cases": [
+    {
+      "id": "h01",
+      "label": "human",
+      "text": "Пошёл за хлебом. Вернулся с ёлочной игрушкой. Октябрь, ты чего?",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h02",
+      "label": "human",
+      "text": "Сварила кофе, открыла ноутбук и забыла, зачем открыла. Кофе хотя бы помнит.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h03",
+      "label": "human",
+      "text": "Не купил велосипед. Прокатился на старом и понял, что новый мне не нужен.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h04",
+      "label": "human",
+      "text": "Вчера было 12 заявок, сегодня 8. Это два разных дня, а не повод рисовать тренд.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h05",
+      "label": "human",
+      "text": "Я не пробовал этот крем и не буду придумывать отзыв. Могу показать состав.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h06",
+      "label": "human",
+      "text": "У нас доставка по вторникам. На этой неделе машина сломалась, поэтому перенесли на четверг.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h07",
+      "label": "human",
+      "text": "Ёж нашёл яблоко. Я нашёл ёжика. Яблоко никто не спрашивал.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h08",
+      "label": "human",
+      "text": "Утро началось с ключей в холодильнике. Зато молоко теперь точно в кармане не лежит.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h09",
+      "label": "human",
+      "text": "Николай Ёлкин проверил артикул ЁЖ-42. Цена 1 250,50 ₽, скидка 8,5%. Ничего не покупали.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h10",
+      "label": "human",
+      "text": "Коротко: встреча в 18:30, вход с улицы Ленина. Не забудьте паспорт.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h11",
+      "label": "human",
+      "text": "Поставьте чайник, если хотите чаю. Я пока найду чашки.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h12",
+      "label": "human",
+      "text": "Не всё надо оптимизировать. Иногда булка с маслом вполне справляется.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h13",
+      "label": "human",
+      "text": "Первый снег в этом году был смешным. Лёг на пять минут и ушёл по делам.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h14",
+      "label": "human",
+      "text": "Мы сидели у окна и молчали. Хорошее было молчание, без необходимости его улучшать.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "development"
+    },
+    {
+      "id": "h15",
+      "label": "human",
+      "text": "Мой кот 👨‍👩‍👧‍👦 не оценил семейное фото. Зато оценил коробку от рамки.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "h16",
+      "label": "human",
+      "text": "Пишу из электрички. Интернет есть только возле одного дерева, так что новости короткие.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "h17",
+      "label": "human",
+      "text": "Ничего не изменилось: я всё ещё не люблю ранние созвоны. Но к девяти прихожу.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "h18",
+      "label": "human",
+      "text": "План: хлеб, сыр, огурцы. Никакого кулинарного героизма сегодня не будет.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "h19",
+      "label": "human",
+      "text": "Сегодня не получилось. Завтра попробую другой способ, а не ту же кнопку десять раз.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "h20",
+      "label": "human",
+      "text": "Было тихо. Дождь стучал по подоконнику, сосед искал ключи, внизу кто-то ругался на зонтик. Я допил чай и убрал чашку.\n\nПотом пришло сообщение о переносе встречи. Впервые за неделю у меня оказался свободный вечер. Я не стал срочно придумывать ему пользу.\n\nЯ достал с полки старую книгу. Между страницами нашёл билет на поезд, которым мы когда-то ездили к морю. Дата почти стёрлась, но название станции ещё читалось. Это ничего не объясняло и ни к чему не призывало. Просто напомнило тот вечер, когда мы опоздали на электричку и ели холодные пирожки на пустой платформе. Один пирожок я тогда уронил. Другой оказался с капустой, хотя я был уверен, что взял картошку. С тех пор на вокзале я сначала спрашиваю про начинку, а уже потом смотрю на расписание.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "holdout"
+    },
+    {
+      "id": "t01",
+      "label": "template",
+      "text": "В современном мире важно понимать ключевой аспект развития личности.",
+      "expected_ids": [
+        "modern-world",
+        "key-aspect"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t02",
+      "label": "template",
+      "text": "Это не просто чашка, это новый уровень заботы о себе.",
+      "expected_ids": [
+        "not-just"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t03",
+      "label": "template",
+      "text": "Нельзя не отметить, что эта уникальная возможность открывает новые горизонты.",
+      "expected_ids": [
+        "cannot-not-note",
+        "empty-promise"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t04",
+      "label": "template",
+      "text": "Благодарим вас за интерес! Искренне рады сообщить о нашем проекте.",
+      "expected_ids": [
+        "thanks-interest"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t05",
+      "label": "template",
+      "text": "Поверьте в себя. Всё в ваших руках. Никогда не сдавайтесь на пути к успеху.",
+      "expected_ids": [
+        "motivation"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t06",
+      "label": "template",
+      "text": "Подписывайтесь, чтобы не пропустить полезные советы. Ставьте лайк и делитесь в комментариях.",
+      "expected_ids": [
+        "subscription-bait"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t07",
+      "label": "template",
+      "text": "В современном мире всё меняется. Давайте разберёмся. Ключевой аспект в том, чтобы раскрыть свой потенциал.",
+      "expected_ids": [
+        "modern-world",
+        "key-aspect",
+        "motivation"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t08",
+      "label": "template",
+      "text": "Это не просто сервис, а уникальная возможность. Нельзя не отметить его значение.",
+      "expected_ids": [
+        "not-just",
+        "cannot-not-note"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t09",
+      "label": "template",
+      "text": "Искренне рады сообщить: это выведет на новый уровень и откроет двери к успеху.",
+      "expected_ids": [
+        "thanks-interest",
+        "empty-promise"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t10",
+      "label": "template",
+      "text": "Важно понимать ключевой аспект. Всё в ваших руках, поэтому раскройте свой потенциал.",
+      "expected_ids": [
+        "key-aspect",
+        "motivation"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t11",
+      "label": "template",
+      "text": "Этот способ помогает писать короткие понятные тексты каждый день. Этот способ помогает писать короткие понятные тексты каждый день.",
+      "expected_ids": [
+        "repeated-thought"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t12",
+      "label": "template",
+      "text": "Мы предлагаем простые решения для вашего проекта. Мы предлагаем понятные условия для вашего проекта. Мы предлагаем удобный график для вашего проекта.",
+      "expected_ids": [
+        "repeated-openers"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t13",
+      "label": "template",
+      "text": "В современном мире необходимо отметить уникальные возможности развития. Это не просто инструмент, это ключевой аспект успеха.",
+      "expected_ids": [
+        "modern-world",
+        "not-just",
+        "key-aspect"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t14",
+      "label": "template",
+      "text": "Поверьте в себя и никогда не сдавайтесь. А что вы думаете? Делитесь в комментариях!",
+      "expected_ids": [
+        "motivation",
+        "subscription-bait"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "development"
+    },
+    {
+      "id": "t15",
+      "label": "template",
+      "text": "Благодарим вас за интерес к этой уникальной возможности. Нельзя не отметить, как она выведет на новый уровень.",
+      "expected_ids": [
+        "thanks-interest",
+        "cannot-not-note",
+        "empty-promise"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "t16",
+      "label": "template",
+      "text": "Это не просто пост, это движение на пути к успеху. Подписывайтесь, чтобы получать больше полезных материалов.",
+      "expected_ids": [
+        "not-just",
+        "motivation",
+        "subscription-bait"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "t17",
+      "label": "template",
+      "text": "В современном мире ключевым аспектом является мотивация. Раскройте свой потенциал, ведь всё в ваших руках.",
+      "expected_ids": [
+        "modern-world",
+        "key-aspect",
+        "motivation"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "t18",
+      "label": "template",
+      "text": "Нельзя не отметить преимущества. Поверьте в себя. Ставьте лайк.",
+      "expected_ids": [
+        "cannot-not-note",
+        "motivation",
+        "subscription-bait"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "t19",
+      "label": "template",
+      "text": "Искренне рады сообщить, что перед вами уникальные возможности. В современном мире это особенно актуально.",
+      "expected_ids": [
+        "thanks-interest",
+        "modern-world"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "t20",
+      "label": "template",
+      "text": "Это не просто список, это ключевой аспект вашего роста. Никогда не сдавайтесь.",
+      "expected_ids": [
+        "not-just",
+        "key-aspect",
+        "motivation"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "holdout"
+    },
+    {
+      "id": "e01",
+      "label": "edge",
+      "text": "Он написал: «В современном мире важно понимать ключевой аспект». Я посмеялся.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e02",
+      "label": "edge",
+      "text": "URL: https://example.com/В-современном-мире?q=ЁЖ-42&n=8.5. Проверяем ссылку.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e03",
+      "label": "edge",
+      "text": "Безусловно, завтра буду. Я уже взял билет.",
+      "expected_ids": [
+        "unquestionably"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e04",
+      "label": "edge",
+      "text": "Вы абсолютно правы: здесь я ошибся. Исправлю число, а не буду спорить.",
+      "expected_ids": [
+        "absolute-agreement"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e05",
+      "label": "edge",
+      "text": "Важно понимать, что лекарство я не принимал. Отзыв о действии писать не буду.",
+      "expected_ids": [
+        "important-to-understand"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e06",
+      "label": "edge",
+      "text": "Давайте разберёмся с расчётом вместе после обеда.",
+      "expected_ids": [
+        "lets-explain"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e07",
+      "label": "edge",
+      "text": "В современном мире связь быстрее, чем в XIX веке. Это буквальное сравнение эпох.",
+      "expected_ids": [
+        "modern-world"
+      ],
+      "blocked_modes": [],
+      "expected_review": true,
+      "split": "edge",
+      "note": "Literal epoch comparison: expected heuristic false positive."
+    },
+    {
+      "id": "e08",
+      "label": "edge",
+      "text": "Не только кофе, но и чай закончился. Сходить в магазин всё-таки придётся.",
+      "expected_ids": [
+        "not-only-but"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e09",
+      "label": "edge",
+      "text": "Я не покупал этот товар вчера. Я покупал этот товар вчера. Это два разных утверждения.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e10",
+      "label": "edge",
+      "text": "В понедельник получили 12 заявок от новых покупателей. Во вторник получили 8 заявок от новых покупателей.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e11",
+      "label": "edge",
+      "text": "На данный момент заказ не оплачен. В настоящий момент я ничего не покупаю.",
+      "expected_ids": [
+        "at-this-moment"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e12",
+      "label": "edge",
+      "text": "Давайте разберёмся.\n\nЁлка стоит у окна.\nКот спит рядом.\nЯ тихо пью чай.",
+      "expected_ids": [
+        "lets-explain"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e13",
+      "label": "edge",
+      "text": "Мой план — кофе и прогулка. Не покупаю ничего лишнего.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e14",
+      "label": "edge",
+      "text": "Хотел уйти — но остался. Я — честно — устал.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e15",
+      "label": "edge",
+      "text": "Встречаемся 10—12 октября. Номер AB-42/9, цена 8,50 ₽.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e16",
+      "label": "edge",
+      "text": "Москва — столица России. Не собираюсь спорить с географией.",
+      "expected_ids": [],
+      "blocked_modes": [
+        "ru-social"
+      ],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e17",
+      "label": "edge",
+      "text": "Не умеешь — не берись. Это бабушкина фраза, не мой новый опыт.",
+      "expected_ids": [],
+      "blocked_modes": [
+        "ru-social"
+      ],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e18",
+      "label": "edge",
+      "text": "Она сказала: «Москва — столица России». Я записал дословно.",
+      "expected_ids": [],
+      "blocked_modes": [
+        "ru-social"
+      ],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e19",
+      "label": "edge",
+      "text": "Семья 👨‍👩‍👧‍👦, разработчик 👩🏽‍💻, сердце ❤️, ключ 1️⃣ и флаг 🏳️‍🌈. Всё на месте.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e20",
+      "label": "edge",
+      "text": "Шесть шагов:\n1. Откройте крышку.\n2. Выключите питание.\n3. Снимите фильтр.\n4. Промойте фильтр.\n5. Верните фильтр.\n6. Закройте крышку.",
+      "expected_ids": [
+        "list-density"
+      ],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e21",
+      "label": "edge",
+      "text": "код: `В современном мире` не надо редактировать. Цена 3.14, дата 12.10.2026.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e22",
+      "label": "edge",
+      "text": "«На данный момент» здесь название рассказа, а не канцелярит автора.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e23",
+      "label": "edge",
+      "text": "Т. е. это не отзыв. В г. Орле я был в 2025 г. и ничего не покупал.",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    },
+    {
+      "id": "e24",
+      "label": "edge",
+      "text": "Проверка email: test@example.com, артикул ЁЖ-42, имя Николай Ёлкин. “Всё” и «ёлка».",
+      "expected_ids": [],
+      "blocked_modes": [],
+      "expected_review": false,
+      "split": "edge",
+      "note": "Editorial cues may be legitimate; not evidence of authorship."
+    }
+  ]
+}

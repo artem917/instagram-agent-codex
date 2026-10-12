@@ -1,5 +1,8 @@
 # First-version test report
 
+Historical report for initial baseline 3f83e07. The subsequent Russian release
+is documented in [RU_TEST_REPORT.md](RU_TEST_REPORT.md).
+
 Date: 2026-10-12. All content inputs are synthetic. No Instagram account was
 connected, modified or contacted. No social actions or external integrations
 were tested or performed.

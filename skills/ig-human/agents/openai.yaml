@@ -1,4 +1,4 @@
 interface:
   display_name: "ig-human"
-  short_description: "Clean English drafts with local text heuristics"
-  default_prompt: "Use $ig-human for my Instagram content task using the facts I provide."
+  short_description: "Clean English and Russian drafts with local review"
+  default_prompt: "Use $ig-human to edit my draft in en, ru or ru-social while preserving facts and my voice."

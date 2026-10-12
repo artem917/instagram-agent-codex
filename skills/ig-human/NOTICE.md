@@ -5,3 +5,8 @@ See LICENSE for the unchanged MIT terms. Codex adaptation: artem917 (2026).
 Changes: invocation/resource/data paths, portable UTF-8 CLI handling, honest
 tool limitations, and local validation. Original creative workflows/data are
 credited to upstream. Install all 13 sibling skills for the complete workflow.
+
+IG_HUMAN_RU_V1: shared ru/ru-social engine, Russian lexicon, protected-data
+checks, labelled synthetic regressions and an English emoji joiner/tag fix.
+New code and authored Russian resources: artem917 (2026), MIT. No authorship
+detector or watermark-removal claim.

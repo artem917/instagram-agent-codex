@@ -1,29 +1,14 @@
 #!/usr/bin/env python3
 """
-humanize.py - strip the machine fingerprint out of a draft.
+Local draft normalization and review in en (default), ru and ru-social.
+English lexical/typographic behavior is retained for compatibility, with emoji
+joiners/tags preserved. Russian symbol normalization, style findings and
+semantic recommendations are separate; complex rewrites require context.
+No authorship detection or watermark-removal claim is made.
 
-Three passes, in this order:
-
-  1. INVISIBLE   delete or normalise the characters a human keyboard never
-                 produces: zero-width joiners, word joiners, soft hyphens,
-                 BOMs, Unicode tag characters, non-breaking and narrow spaces.
-                 These survive copy-paste and are the most mechanical tell in
-                 any generated text.
-  2. TYPOGRAPHIC em dash -> comma, en dash -> hyphen, curly quotes -> straight,
-                 ellipsis -> three dots, bullet -> hyphen.
-  3. LEXICAL     replace the slop lexicon in slop.json with plain words,
-                 preserving capitalisation and leaving URLs untouched.
-
-Structural tells (rule-of-three, "not just X, it's Y", hashtag walls) are
-REPORTED, never auto-rewritten - rewriting a sentence's shape needs judgement,
-so that is the model's job, not a regex's.
-
-Usage
-  python3 humanize.py draft.txt
-  python3 humanize.py draft.txt --report
-  # macOS clipboard (optional): pbpaste | python3 humanize.py - --report
-  python3 humanize.py draft.txt --json
-  python3 humanize.py draft.txt -o clean.txt
+Usage:
+  python humanize.py draft.txt -o clean.txt --report
+  python humanize.py draft.txt --mode ru-social --json
 """
 
 import argparse
@@ -76,6 +61,10 @@ def pass_invisible(text, lex):
     hits = []
     for entry in lex["invisible"]:
         cp = _cp(entry["cp"])
+        # Keep joiners and emoji tag sequences; the upstream blanket Cf pass
+        # damaged family/profession/flag emoji. Do not claim watermark removal.
+        if cp == 0x200D or cp == (0xE0000, 0xE007F):
+            continue
         if isinstance(cp, tuple):
             pattern = "[" + re.escape(chr(cp[0])) + "-" + re.escape(chr(cp[1])) + "]"
         else:
@@ -86,11 +75,12 @@ def pass_invisible(text, lex):
                          "action": entry["action"]})
             text = re.sub(pattern, "" if entry["action"] == "delete" else " ", text)
     # Any remaining Cf (format) character is invisible by definition.
-    stray = [c for c in text if unicodedata.category(c) == "Cf"]
+    keep = lambda c: ord(c) == 0x200D or 0xE0000 <= ord(c) <= 0xE007F
+    stray = [c for c in text if unicodedata.category(c) == "Cf" and not keep(c)]
     if stray:
         hits.append({"name": "other invisible format chars", "count": len(stray),
                      "action": "delete"})
-        text = "".join(c for c in text if unicodedata.category(c) != "Cf")
+        text = "".join(c for c in text if unicodedata.category(c) != "Cf" or keep(c))
     return text, hits
 
 
@@ -229,7 +219,7 @@ def render_report(report, out=sys.stderr):
         + sum(h["count"] for h in report["lexical"])
 
     head("HUMANIZE REPORT")
-    print(f"{total} machine artefacts removed, "
+    print(f"{total} matching characters/terms normalized, "
           f"{len(report['structures'])} structural tells flagged for rewrite", file=out)
 
     if report["invisible"]:
@@ -255,16 +245,41 @@ def render_report(report, out=sys.stderr):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Strip the machine fingerprint out of a draft.")
+    ap = argparse.ArgumentParser(description="Normalize and review a draft; English or Russian style modes.")
     ap.add_argument("input", nargs="?", default="-", help="file, or - for stdin")
     ap.add_argument("-o", "--out", help="write cleaned text here instead of stdout")
     ap.add_argument("--report", action="store_true", help="print what changed, to stderr")
     ap.add_argument("--json", action="store_true", help="emit {text, report} as JSON")
-    ap.add_argument("--lexicon", default=LEX, help="path to slop.json")
+    ap.add_argument("--lexicon", help="custom English slop.json or Russian ru_lexicon.json")
+    ap.add_argument("--mode", choices=("en", "ru", "ru-social"), default="en")
+    ap.add_argument("--preserve", action="append", default=[], help="keep this exact literal (RU; repeatable)")
+    ap.add_argument("--platform-settings", help="optional local JSON limits for RU; never auto-truncate")
     args = ap.parse_args()
 
     raw = read_text(args.input)
-    lex = load_lexicon(args.lexicon)
+    if args.mode != "en":
+        from ru_engine import RULES, load_rules, normalize, platform_settings, render_analysis
+        if not raw.strip():
+            ap.error("empty Russian draft")
+        lex = load_rules(args.lexicon or RULES)
+        result = normalize(raw, args.mode, lex, args.preserve, platform_settings(args.platform_settings))
+        if args.json:
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        else:
+            if result["text"] is not None:
+                if args.out:
+                    write_text(args.out, result["text"])
+                else:
+                    sys.stdout.write(result["text"])
+            if args.report or result["text"] is None:
+                render_analysis(result["report"]["analysis"], sys.stderr)
+                for item in result["report"]["unresolved"]:
+                    print(f"NEEDS_REWRITE: {item['evidence']!r}: {item['recommendation']}", file=sys.stderr)
+        status = result["report"]["status"]
+        sys.exit(3 if status == "NEEDS_REWRITE" else (1 if status == "REVIEW" else 0))
+    if args.preserve or args.platform_settings:
+        ap.error("--preserve and --platform-settings are Russian-mode options")
+    lex = load_lexicon(args.lexicon or LEX)
     clean, report = humanize(raw, lex)
 
     if args.json:

@@ -105,6 +105,12 @@ def validate(root=ROOT):
     lex = json.loads((root / "skills/ig-human/slop.json").read_text(encoding="utf-8"))
     for item in lex["structures"]:
         re.compile(item["regex"], re.MULTILINE)
+    for required in ("ru_engine.py", "content_guard.py", "ru_lexicon.json", "references/ru.md", "references/en.md"):
+        if not (root / "skills/ig-human" / required).is_file():
+            raise ValueError(f"Missing ig-human RU resource: {required}")
+    ru = json.loads((root / "skills/ig-human/ru_lexicon.json").read_text(encoding="utf-8"))
+    for item in ru["patterns"]:
+        re.compile(item["regex"], re.IGNORECASE)
     rubric = json.loads((root / "skills/ig-profile/rubric.json").read_text(encoding="utf-8"))
     if len(rubric["items"]) != 12 or sum(i["points"] for i in rubric["items"]) != 100 or rubric["total"] != 100:
         raise ValueError("Profile rubric mismatch")

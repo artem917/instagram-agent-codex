@@ -1,0 +1,1302 @@
+{
+  "task": "IG_HUMAN_RU_V1",
+  "date": "2026-10-12",
+  "baseline": "3f83e07",
+  "evidence": "Actual Codex CLI synthetic forward-test artifacts, paths sanitized. Not independent human evaluation.",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "cases": {
+    "social": {
+      "codex_turn_completed": true,
+      "source": "Давайте разберёмся.\n\nНа данный момент ёлка «Искра» стоит у окна.\nНиколай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ — честно — устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам.\nИнструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+      "final": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+      "reports": {
+        "cli-runs.json": [
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-X",
+              "utf8",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\source-social.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_file": "detect-source.json",
+            "stderr": ""
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-X",
+              "utf8",
+              ".\\.agents\\skills\\ig-human\\humanize.py",
+              ".\\source-social.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_file": "humanize-source.json",
+            "stderr": ""
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-X",
+              "utf8",
+              ".\\.agents\\skills\\ig-human\\humanize.py",
+              ".\\final-social.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_file": "humanize-final.json",
+            "stderr": ""
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-X",
+              "utf8",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\final-social.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_file": "detect-final.json",
+            "stderr": ""
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-X",
+              "utf8",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\source-social.txt",
+              ".\\final-social.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_file": "comparison.json",
+            "stderr": ""
+          }
+        ],
+        "comparison.json": [
+          {
+            "source": ".\\source-social.txt",
+            "mode": "ru-social",
+            "verdict": "REVIEW",
+            "findings": [
+              {
+                "id": "lets-explain",
+                "category": "filler",
+                "start": 0,
+                "end": 18,
+                "evidence": "Давайте разберёмся",
+                "recommendation": "Если это пустой заход, начните с предмета. Настоящее приглашение к разбору сохраняйте.",
+                "severity": "note"
+              },
+              {
+                "id": "key-aspect",
+                "category": "bureaucratic",
+                "start": 227,
+                "end": 242,
+                "evidence": "ключевой аспект",
+                "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+                "severity": "warning"
+              },
+              {
+                "id": "at-this-moment",
+                "category": "bureaucratic",
+                "start": 21,
+                "end": 37,
+                "evidence": "На данный момент",
+                "recommendation": "Для обычного поста достаточно «сейчас»; временной смысл сохраняется.",
+                "severity": "note"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 19,
+                "end": 21,
+                "evidence": "\n\n",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 43,
+                "end": 44,
+                "evidence": "«",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 49,
+                "end": 50,
+                "evidence": "»",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 199,
+                "end": 200,
+                "evidence": "—",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 208,
+                "end": 209,
+                "evidence": "—",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              }
+            ],
+            "metrics": {
+              "prose_words": 40,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  7,
+                  3,
+                  3,
+                  9,
+                  15
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 3,
+              "filler_words": 7,
+              "filler_fraction": 0.175,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED"
+          },
+          {
+            "source": ".\\final-social.txt",
+            "mode": "ru-social",
+            "verdict": "REVIEW",
+            "findings": [
+              {
+                "id": "key-aspect",
+                "category": "bureaucratic",
+                "start": 194,
+                "end": 209,
+                "evidence": "ключевой аспект",
+                "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+                "severity": "warning"
+              }
+            ],
+            "metrics": {
+              "prose_words": 36,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  5,
+                  3,
+                  3,
+                  9,
+                  15
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 1,
+              "filler_words": 2,
+              "filler_fraction": 0.056,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED",
+            "comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            }
+          }
+        ],
+        "detect-final.json": {
+          "source": ".\\final-social.txt",
+          "mode": "ru-social",
+          "verdict": "REVIEW",
+          "findings": [
+            {
+              "id": "key-aspect",
+              "category": "bureaucratic",
+              "start": 194,
+              "end": 209,
+              "evidence": "ключевой аспект",
+              "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+              "severity": "warning"
+            }
+          ],
+          "metrics": {
+            "prose_words": 36,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                5,
+                3,
+                3,
+                9,
+                15
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 1,
+            "filler_words": 2,
+            "filler_fraction": 0.056,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "detect-source.json": {
+          "source": ".\\source-social.txt",
+          "mode": "ru-social",
+          "verdict": "REVIEW",
+          "findings": [
+            {
+              "id": "lets-explain",
+              "category": "filler",
+              "start": 0,
+              "end": 18,
+              "evidence": "Давайте разберёмся",
+              "recommendation": "Если это пустой заход, начните с предмета. Настоящее приглашение к разбору сохраняйте.",
+              "severity": "note"
+            },
+            {
+              "id": "key-aspect",
+              "category": "bureaucratic",
+              "start": 227,
+              "end": 242,
+              "evidence": "ключевой аспект",
+              "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+              "severity": "warning"
+            },
+            {
+              "id": "at-this-moment",
+              "category": "bureaucratic",
+              "start": 21,
+              "end": 37,
+              "evidence": "На данный момент",
+              "recommendation": "Для обычного поста достаточно «сейчас»; временной смысл сохраняется.",
+              "severity": "note"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 19,
+              "end": 21,
+              "evidence": "\n\n",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 43,
+              "end": 44,
+              "evidence": "«",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 49,
+              "end": 50,
+              "evidence": "»",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 199,
+              "end": 200,
+              "evidence": "—",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 208,
+              "end": 209,
+              "evidence": "—",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            }
+          ],
+          "metrics": {
+            "prose_words": 40,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                7,
+                3,
+                3,
+                9,
+                15
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 3,
+            "filler_words": 7,
+            "filler_fraction": 0.175,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "editorial-review.json": {
+          "report_type": "editorial_context_review_and_local_checks",
+          "mode": "ru-social",
+          "protected_literals": [
+            {
+              "literal": "https://example.com/tree?id=ЁЖ-42&price=1250.50",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "Искра",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "Николай Ёлкин",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "ЁЖ-42",
+              "source_count": 2,
+              "final_count": 2,
+              "equal": true
+            },
+            {
+              "literal": "10.10.2026",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "1 250,50 ₽",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "1250.50",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "не покупал ёлку",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "не пробовал её украшать",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            },
+            {
+              "literal": "👩🏽‍💻",
+              "source_count": 1,
+              "final_count": 1,
+              "equal": true
+            }
+          ],
+          "fact_mapping": [
+            {
+              "fact": "Ёлка Искра сейчас стоит у окна",
+              "source": "На данный момент ёлка «Искра» стоит у окна.",
+              "final": "Сейчас ёлка \"Искра\" стоит у окна.",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            },
+            {
+              "fact": "Николай Ёлкин принёс ёлку в указанную дату; артикул не изменён",
+              "source": "Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.",
+              "final": "Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            },
+            {
+              "fact": "Сумма указана на коробке, а не приписана покупке",
+              "source": "На коробке указано 1 250,50 ₽.",
+              "final": "На коробке указано 1 250,50 ₽.",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            },
+            {
+              "fact": "Автор не покупал ёлку и не пробовал её украшать",
+              "source": "Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.",
+              "final": "Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            },
+            {
+              "fact": "Автор устал от пафоса; кот уже сделал всё сам",
+              "source": "Я — честно — устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам.",
+              "final": "Я, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам.",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            },
+            {
+              "fact": "Ссылка подписана как инструкция",
+              "source": "Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50",
+              "final": "Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50",
+              "source_excerpt_found": true,
+              "final_excerpt_found": true
+            }
+          ],
+          "checks": {
+            "protected_literal_counts_equal": true,
+            "negation_count_equal": true,
+            "fact_excerpts_present": true,
+            "no_em_dash": true,
+            "no_literary_quotes": true,
+            "no_empty_lines": true,
+            "no_added_hashtags": true,
+            "normalization_idempotent": true,
+            "cli_data_comparison_passed": true
+          },
+          "manual_review": {
+            "outcome": "Исходные факты, их связи, отрицания, шутка и авторская интонация сохранены при контекстном сопоставлении.",
+            "additions": "Личный опыт, покупки, вопросы, CTA и хештеги не добавлены.",
+            "changes": [
+              "Удалён пустой заход Давайте разберёмся.",
+              "На данный момент заменено на Сейчас с сохранением временного смысла.",
+              "Кавычки упрощены, вводное честно выделено запятыми, строки объединены в многофразовые абзацы без пустых строк."
+            ],
+            "retained_finding": {
+              "id": "key-aspect",
+              "evidence": "ключевой аспект",
+              "classification": "Контекстное ложное срабатывание по редакторской интерпретации",
+              "reason": "Пафосный оборот сразу после признания усталости от пафоса поддерживает иронию о коте. Сохранён авторский оборот; предупреждение CLI не скрыто."
+            }
+          },
+          "limitations": {
+            "cli_semantic_equivalence": "UNVERIFIED",
+            "rhythm": "INCONCLUSIVE",
+            "authorship": "NOT_ASSESSED",
+            "voice_context": "Локальный voice.md не найден; глобальные и личные профили не читались.",
+            "runtime": "Первый вспомогательный запуск прервался при печати JSON в консоль из-за UnicodeEncodeError cp1251 для U+20BD. Затем оба CLI повторно выполнены с явным UTF-8; сохранены их исходные stdout JSON.",
+            "scope": "Синтетический локальный тест; без сети, публикации и отправки. Проверка данных не доказывает смысловую эквивалентность или авторство."
+          }
+        },
+        "humanize-final.json": {
+          "text": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "paragraph-flow",
+                "before": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+                "after": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50"
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "REVIEW",
+              "findings": [
+                {
+                  "id": "key-aspect",
+                  "category": "bureaucratic",
+                  "start": 194,
+                  "end": 209,
+                  "evidence": "ключевой аспект",
+                  "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+                  "severity": "warning"
+                }
+              ],
+              "metrics": {
+                "prose_words": 36,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    5,
+                    3,
+                    3,
+                    9,
+                    15
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 1,
+                "filler_words": 2,
+                "filler_fraction": 0.056,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "REVIEW"
+          }
+        },
+        "humanize-source.json": {
+          "text": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "plain-wording",
+                "before": "На данный момент",
+                "after": "Сейчас"
+              },
+              {
+                "id": "empty-intro",
+                "before": "Давайте разберёмся.",
+                "after": ""
+              },
+              {
+                "id": "parenthetical",
+                "before": " — честно — ",
+                "after": ", честно, "
+              },
+              {
+                "id": "paragraph-flow",
+                "before": "\n\nСейчас ёлка \"Искра\" стоит у окна.\nНиколай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам.\nИнструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50\n",
+                "after": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин принёс её 10.10.2026, артикул ЁЖ-42.\nНа коробке указано 1 250,50 ₽. Я не покупал ёлку и не пробовал её украшать 👩🏽‍💻.\nЯ, честно, устал от пафоса: ключевой аспект в том, что кот уже сделал всё сам. Инструкция: https://example.com/tree?id=ЁЖ-42&price=1250.50"
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "REVIEW",
+              "findings": [
+                {
+                  "id": "key-aspect",
+                  "category": "bureaucratic",
+                  "start": 194,
+                  "end": 209,
+                  "evidence": "ключевой аспект",
+                  "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную.",
+                  "severity": "warning"
+                }
+              ],
+              "metrics": {
+                "prose_words": 36,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    5,
+                    3,
+                    3,
+                    9,
+                    15
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 1,
+                "filler_words": 2,
+                "filler_fraction": 0.056,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "REVIEW"
+          }
+        }
+      }
+    },
+    "literary": {
+      "codex_turn_completed": true,
+      "source": "В современном мире письмо доходит за секунды, а в XIX веке его могли ждать неделями.\n«На данный момент» — название рассказа Николая Ёлкина. Я не читал рассказ и ничего не покупал.\n\nБезусловно, сравнение эпох здесь буквальное. Я не выдаю себя за читателя и не пишу отзыв о книге.\nДата заметки 12.10.2026. Ссылка https://example.com/story?id=42\n",
+      "final": "В современном мире письмо доходит за секунды, а в XIX веке его могли ждать неделями.\n«На данный момент» — название рассказа Николая Ёлкина. Я не читал рассказ и ничего не покупал.\n\nБезусловно, сравнение эпох здесь буквальное. Я не выдаю себя за читателя и не пишу отзыв о книге.\n\nДата заметки: 12.10.2026.\nСсылка: https://example.com/story?id=42\n",
+      "reports": {
+        "comparison.json": [
+          {
+            "source": ".\\source-literary.txt",
+            "mode": "ru",
+            "verdict": "REVIEW",
+            "findings": [
+              {
+                "id": "modern-world",
+                "category": "filler",
+                "start": 0,
+                "end": 18,
+                "evidence": "В современном мире",
+                "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+                "severity": "warning"
+              },
+              {
+                "id": "unquestionably",
+                "category": "filler",
+                "start": 181,
+                "end": 191,
+                "evidence": "Безусловно",
+                "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+                "severity": "note"
+              }
+            ],
+            "metrics": {
+              "prose_words": 45,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  15,
+                  8,
+                  5,
+                  12
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 2,
+              "filler_words": 4,
+              "filler_fraction": 0.089,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED"
+          },
+          {
+            "source": ".\\final-literary.txt",
+            "mode": "ru",
+            "verdict": "REVIEW",
+            "findings": [
+              {
+                "id": "modern-world",
+                "category": "filler",
+                "start": 0,
+                "end": 18,
+                "evidence": "В современном мире",
+                "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+                "severity": "warning"
+              },
+              {
+                "id": "unquestionably",
+                "category": "filler",
+                "start": 181,
+                "end": 191,
+                "evidence": "Безусловно",
+                "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+                "severity": "note"
+              }
+            ],
+            "metrics": {
+              "prose_words": 45,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  15,
+                  8,
+                  5,
+                  12
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 2,
+              "filler_words": 4,
+              "filler_fraction": 0.089,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED",
+            "comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            }
+          }
+        ],
+        "detect-final.json": {
+          "source": ".\\final-literary.txt",
+          "mode": "ru",
+          "verdict": "REVIEW",
+          "findings": [
+            {
+              "id": "modern-world",
+              "category": "filler",
+              "start": 0,
+              "end": 18,
+              "evidence": "В современном мире",
+              "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+              "severity": "warning"
+            },
+            {
+              "id": "unquestionably",
+              "category": "filler",
+              "start": 181,
+              "end": 191,
+              "evidence": "Безусловно",
+              "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+              "severity": "note"
+            }
+          ],
+          "metrics": {
+            "prose_words": 45,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                15,
+                8,
+                5,
+                12
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 2,
+            "filler_words": 4,
+            "filler_fraction": 0.089,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "detect-original.json": {
+          "source": ".\\source-literary.txt",
+          "mode": "ru",
+          "verdict": "REVIEW",
+          "findings": [
+            {
+              "id": "modern-world",
+              "category": "filler",
+              "start": 0,
+              "end": 18,
+              "evidence": "В современном мире",
+              "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+              "severity": "warning"
+            },
+            {
+              "id": "unquestionably",
+              "category": "filler",
+              "start": 181,
+              "end": 191,
+              "evidence": "Безусловно",
+              "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+              "severity": "note"
+            }
+          ],
+          "metrics": {
+            "prose_words": 45,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                15,
+                8,
+                5,
+                12
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 2,
+            "filler_words": 4,
+            "filler_fraction": 0.089,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "editorial-review.json": {
+          "report_type": "editorial_review_and_local_comparison",
+          "not_a_skill_cli_report": true,
+          "mode": "ru",
+          "changes": [
+            "Двоеточие после «Дата заметки» и «Ссылка».",
+            "Дата и ссылка выделены отдельным блоком, ссылка перенесена на отдельную строку."
+          ],
+          "checks": {
+            "skill_comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "word_and_number_sequence_unchanged": true,
+            "only_declared_punctuation_and_whitespace_changes": true,
+            "final_normalizer_text_matches_saved_file": true,
+            "literal_inventory": [
+              {
+                "literal": "https://example.com/story?id=42",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "Николая Ёлкина",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "«На данный момент»",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "XIX",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "12.10.2026",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "секунды",
+                "original_count": 1,
+                "final_count": 1
+              },
+              {
+                "literal": "неделями",
+                "original_count": 1,
+                "final_count": 1
+              }
+            ],
+            "negations": {
+              "не": {
+                "original_count": 4,
+                "final_count": 4
+              },
+              "ничего": {
+                "original_count": 1,
+                "final_count": 1
+              }
+            },
+            "articles": "Артикулов в исходнике нет."
+          },
+          "contextual_review": {
+            "type": "Ручное сопоставление смысла, не автоматический вердикт.",
+            "conclusion": "Все слова и порядок слов сохранены. Сравнение скорости доставки письма сегодня и в XIX веке не изменено. Название рассказа, имя автора, дата, URL и отрицания чтения, покупки, самопредставления читателем и написания отзыва сохранены. Новые утверждения, вопросы, CTA и хештеги не добавлены."
+          },
+          "retained_findings": [
+            {
+              "id": "modern-world",
+              "phrase": "В современном мире",
+              "decision": "Сохранено; ложное срабатывание при оценке фразы как пустого зачина.",
+              "reason": "Фраза задаёт современную эпоху в буквальном сравнении с XIX веком."
+            },
+            {
+              "id": "unquestionably",
+              "phrase": "Безусловно",
+              "decision": "Сохранено; контекстное замечание не требует правки.",
+              "reason": "Обычное вводное слово автора относится к буквальности сравнения, а не добавляет необоснованное обещание."
+            }
+          ],
+          "limitations": [
+            "Ритм: INCONCLUSIVE из-за короткого образца.",
+            "Автоматическое равенство смысла: UNVERIFIED; смысл сопоставлен вручную.",
+            "Авторство: NOT_ASSESSED; стиль не доказывает происхождение текста.",
+            "Локальный voice.md не найден; глобальные и приватные профили не читались.",
+            "Факты взяты только из синтетического исходника; внешняя фактологическая проверка не проводилась.",
+            "Сеть не использовалась."
+          ],
+          "diff": "--- source-literary.txt\n+++ final-literary.txt\n@@ -2,4 +2,6 @@\n «На данный момент» — название рассказа Николая Ёлкина. Я не читал рассказ и ничего не покупал.\n \n Безусловно, сравнение эпох здесь буквальное. Я не выдаю себя за читателя и не пишу отзыв о книге.\n-Дата заметки 12.10.2026. Ссылка https://example.com/story?id=42\n+\n+Дата заметки: 12.10.2026.\n+Ссылка: https://example.com/story?id=42\n"
+        },
+        "execution.json": [
+          {
+            "script": "detect.py",
+            "input": "source-literary.txt",
+            "mode": "ru",
+            "preserve": [
+              "Николая Ёлкина",
+              "На данный момент"
+            ],
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-B",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\source-literary.txt",
+              "--mode",
+              "ru",
+              "--json",
+              "--preserve",
+              "Николая Ёлкина",
+              "--preserve",
+              "На данный момент"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "report": "detect-original.json"
+          },
+          {
+            "script": "humanize.py",
+            "input": "source-literary.txt",
+            "mode": "ru",
+            "preserve": [
+              "Николая Ёлкина",
+              "На данный момент"
+            ],
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-B",
+              ".\\.agents\\skills\\ig-human\\humanize.py",
+              ".\\source-literary.txt",
+              "--mode",
+              "ru",
+              "--json",
+              "--preserve",
+              "Николая Ёлкина",
+              "--preserve",
+              "На данный момент"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "report": "humanize-original.json"
+          },
+          {
+            "script": "humanize.py",
+            "inputs": [
+              "final-literary.txt"
+            ],
+            "mode": "ru",
+            "preserve": [
+              "Николая Ёлкина",
+              "На данный момент"
+            ],
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-B",
+              ".\\.agents\\skills\\ig-human\\humanize.py",
+              ".\\final-literary.txt",
+              "--mode",
+              "ru",
+              "--json",
+              "--preserve",
+              "Николая Ёлкина",
+              "--preserve",
+              "На данный момент"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "report": "humanize-final.json"
+          },
+          {
+            "script": "detect.py",
+            "inputs": [
+              "final-literary.txt"
+            ],
+            "mode": "ru",
+            "preserve": [
+              "Николая Ёлкина",
+              "На данный момент"
+            ],
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-B",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\final-literary.txt",
+              "--mode",
+              "ru",
+              "--json",
+              "--preserve",
+              "Николая Ёлкина",
+              "--preserve",
+              "На данный момент"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "report": "detect-final.json"
+          },
+          {
+            "script": "detect.py",
+            "inputs": [
+              "source-literary.txt",
+              "final-literary.txt"
+            ],
+            "mode": "ru",
+            "preserve": [
+              "Николая Ёлкина",
+              "На данный момент"
+            ],
+            "command": [
+              "C:\\Python314\\python.exe",
+              "-B",
+              ".\\.agents\\skills\\ig-human\\detect.py",
+              ".\\source-literary.txt",
+              ".\\final-literary.txt",
+              "--mode",
+              "ru",
+              "--json",
+              "--preserve",
+              "Николая Ёлкина",
+              "--preserve",
+              "На данный момент"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "report": "comparison.json"
+          }
+        ],
+        "humanize-final.json": {
+          "text": "В современном мире письмо доходит за секунды, а в XIX веке его могли ждать неделями.\n«На данный момент» — название рассказа Николая Ёлкина. Я не читал рассказ и ничего не покупал.\n\nБезусловно, сравнение эпох здесь буквальное. Я не выдаю себя за читателя и не пишу отзыв о книге.\n\nДата заметки: 12.10.2026.\nСсылка: https://example.com/story?id=42\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru",
+            "normalization": [],
+            "analysis": {
+              "mode": "ru",
+              "verdict": "REVIEW",
+              "findings": [
+                {
+                  "id": "modern-world",
+                  "category": "filler",
+                  "start": 0,
+                  "end": 18,
+                  "evidence": "В современном мире",
+                  "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+                  "severity": "warning"
+                },
+                {
+                  "id": "unquestionably",
+                  "category": "filler",
+                  "start": 181,
+                  "end": 191,
+                  "evidence": "Безусловно",
+                  "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+                  "severity": "note"
+                }
+              ],
+              "metrics": {
+                "prose_words": 45,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    15,
+                    8,
+                    5,
+                    12
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 2,
+                "filler_words": 4,
+                "filler_fraction": 0.089,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "REVIEW"
+          }
+        },
+        "humanize-original.json": {
+          "text": "В современном мире письмо доходит за секунды, а в XIX веке его могли ждать неделями.\n«На данный момент» — название рассказа Николая Ёлкина. Я не читал рассказ и ничего не покупал.\n\nБезусловно, сравнение эпох здесь буквальное. Я не выдаю себя за читателя и не пишу отзыв о книге.\nДата заметки 12.10.2026. Ссылка https://example.com/story?id=42\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru",
+            "normalization": [],
+            "analysis": {
+              "mode": "ru",
+              "verdict": "REVIEW",
+              "findings": [
+                {
+                  "id": "modern-world",
+                  "category": "filler",
+                  "start": 0,
+                  "end": 18,
+                  "evidence": "В современном мире",
+                  "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох.",
+                  "severity": "warning"
+                },
+                {
+                  "id": "unquestionably",
+                  "category": "filler",
+                  "start": 181,
+                  "end": 191,
+                  "evidence": "Безусловно",
+                  "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой.",
+                  "severity": "note"
+                }
+              ],
+              "metrics": {
+                "prose_words": 45,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    15,
+                    8,
+                    5,
+                    12
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 2,
+                "filler_words": 4,
+                "filler_fraction": 0.089,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "REVIEW"
+          }
+        }
+      }
+    }
+  }
+}

@@ -64,6 +64,8 @@ Treat upstream platform caps and growth advice as starting assumptions, not
 verified current rules. Check official platform information when a task needs
 current limits; if unavailable, state UNKNOWN. Scores are local English
 heuristics, not virality predictions or third-party AI-detector verdicts.
-Russian lexical/style processing is UNVERIFIED; Unicode transport tests do
-not establish linguistic quality. In particular the requested Russian
-ig-human style (ordinary quotes, natural copy, no blank lines) is future work.
+ig-human has explicit en, ru and ru-social modes. Read references/ru.md for
+Russian execution/guard limits. The other scoring tools remain English.
+Unicode tests do not establish universal linguistic quality. Russian
+humanize.py may return exit 3 (NEEDS_REWRITE) without finished output; use
+its JSON candidate and recommendations for contextual editing.

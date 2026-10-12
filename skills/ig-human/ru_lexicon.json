@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "language": "ru",
+  "note": "Editorial cues, never authorship detection. Both ru modes use this single lexicon. Patterns recommend edits, not semantic regex rewrites.",
+  "patterns": [
+    {
+      "id": "not-just",
+      "category": "construction",
+      "regex": "\\bэто\\s+не\\s+просто\\b[^.!?\\n]{0,180}[,;:]\\s*(?:это|а)\\b",
+      "severity": "warning",
+      "recommendation": "Скажите конкретную мысль напрямую. Не удаляйте отрицание автоматически."
+    },
+    {
+      "id": "modern-world",
+      "category": "filler",
+      "regex": "\\bв\\s+(?:современном|сегодняшнем)\\s+мире\\b",
+      "severity": "warning",
+      "recommendation": "Нужен ли временной контекст? Если нет, начните с факта; не убирайте реальное сравнение эпох."
+    },
+    {
+      "id": "lets-explain",
+      "category": "filler",
+      "regex": "\\bдавайте\\s+разбер[её]мся\\b",
+      "severity": "note",
+      "recommendation": "Если это пустой заход, начните с предмета. Настоящее приглашение к разбору сохраняйте."
+    },
+    {
+      "id": "in-conclusion",
+      "category": "filler",
+      "regex": "\\b(?:подводя\\s+итог(?:и)?|в\\s+заключение|таким\\s+образом)\\b",
+      "severity": "note",
+      "recommendation": "Удалите только пустой итог. Причинную связь и вывод с новыми данными сохраняйте."
+    },
+    {
+      "id": "unquestionably",
+      "category": "filler",
+      "regex": "\\b(?:безусловно|несомненно|очевидно)\\b",
+      "severity": "note",
+      "recommendation": "Проверьте основание уверенности. Это может быть обычным словом автора, а не проблемой."
+    },
+    {
+      "id": "absolute-agreement",
+      "category": "politeness",
+      "regex": "\\bвы\\s+абсолютно\\s+правы\\b",
+      "severity": "note",
+      "recommendation": "Не льстите автоматически. Если это честное согласие в ответе, оставьте его."
+    },
+    {
+      "id": "cannot-not-note",
+      "category": "bureaucratic",
+      "regex": "\\bнельзя\\s+не\\s+отметить\\b",
+      "severity": "warning",
+      "recommendation": "Назовите наблюдение прямо, сохранив смысл двойного отрицания; нужна ручная правка."
+    },
+    {
+      "id": "important-to-understand",
+      "category": "filler",
+      "regex": "\\bважно\\s+понимать\\b",
+      "severity": "note",
+      "recommendation": "Возможно, можно начать с объяснения. Не убирайте реальное предупреждение или важность."
+    },
+    {
+      "id": "key-aspect",
+      "category": "bureaucratic",
+      "regex": "\\bключев(?:ой|ым|ого)\\s+аспект(?:ом|а)?\\b",
+      "severity": "warning",
+      "recommendation": "Назовите конкретный предмет вместо абстрактного аспекта; падеж исправьте вручную."
+    },
+    {
+      "id": "at-this-moment",
+      "category": "bureaucratic",
+      "regex": "\\b(?:на\\s+данный\\s+момент|в\\s+настоящее\\s+время|в\\s+настоящий\\s+момент)\\b",
+      "severity": "note",
+      "recommendation": "Для обычного поста достаточно «сейчас»; временной смысл сохраняется."
+    },
+    {
+      "id": "bureaucratic-action",
+      "category": "bureaucratic",
+      "regex": "\\b(?:осуществля\\w*|производится|данный\\s+функционал|в\\s+рамках|посредством|в\\s+целях|имеется\\s+возможность)\\b",
+      "severity": "note",
+      "recommendation": "Упростите конкретную фразу с учётом управления и падежей. В договоре термин может быть нужен."
+    },
+    {
+      "id": "thanks-interest",
+      "category": "politeness",
+      "regex": "\\b(?:благодарим\\s+вас\\s+за\\s+интерес|искренне\\s+рады\\s+сообщить|позвольте\\s+выразить)\\b",
+      "severity": "warning",
+      "recommendation": "Уберите дежурную вежливость, если она ничего не сообщает. Настоящее спасибо сохраняйте."
+    },
+    {
+      "id": "subscription-bait",
+      "category": "cta",
+      "regex": "\\b(?:подписывайтесь[^.!?\\n]{0,70}(?:не\\s+пропустить|больше|полезн)|ставьте\\s+лайк|делитесь\\s+в\\s+комментариях|а\\s+что\\s+вы\\s+думаете)\\b",
+      "severity": "warning",
+      "recommendation": "Не добавляйте CTA по шаблону. Реальный запрос аудитории можно оставить, не превращая его в обязательный финал."
+    },
+    {
+      "id": "motivation",
+      "category": "motivation",
+      "regex": "\\b(?:вс[её]\\s+в\\s+ваших\\s+руках|поверьте\\s+в\\s+себя|на\\s+пути\\s+к\\s+успеху|раскр(?:ойте|ыть)\\s+свой\\s+потенциал|никогда\\s+не\\s+сдавайтесь)\\b",
+      "severity": "warning",
+      "recommendation": "Замените общую мотивацию реальным содержанием, если оно есть. Не выдумывайте историю успеха."
+    },
+    {
+      "id": "empty-promise",
+      "category": "construction",
+      "regex": "\\b(?:выведет\\s+на\\s+новый\\s+уровень|открывает\\s+новые\\s+горизонты|уникальн\\w*\\s+возможност\\w*)\\b",
+      "severity": "warning",
+      "recommendation": "Что конкретно меняется? Если фактов нет, не усиливайте обещание."
+    },
+    {
+      "id": "staged-question",
+      "category": "construction",
+      "regex": "(?:^|[.!?]\\s+)(?:Результат|Секрет|Итог|Что\\s+это\\s+значит)\\?",
+      "severity": "note",
+      "recommendation": "Риторическая постановка может быть авторским приёмом. Не превращайте каждый пост в вопрос-ответ."
+    },
+    {
+      "id": "one-important-detail",
+      "category": "filler",
+      "regex": "\\b(?:следует\\s+отметить|стоит\\s+отметить|необходимо\\s+отметить|важно\\s+отметить)\\b",
+      "severity": "note",
+      "recommendation": "Перейдите к наблюдению без вводного оборота, если авторская интонация не потеряется."
+    },
+    {
+      "id": "not-only-but",
+      "category": "construction",
+      "regex": "\\bне\\s+только\\b[^.!?\\n]{0,140}\\bно\\s+и\\b",
+      "severity": "note",
+      "recommendation": "Это нормальная русская конструкция. Проверяйте только чрезмерное повторение, не удаляйте отрицание."
+    }
+  ],
+  "safe_replacements": [
+    {
+      "find": "на данный момент",
+      "replace": "сейчас"
+    },
+    {
+      "find": "в настоящее время",
+      "replace": "сейчас"
+    },
+    {
+      "find": "в настоящий момент",
+      "replace": "сейчас"
+    }
+  ],
+  "empty_sentences": [
+    "Давайте разберёмся",
+    "Давайте разберемся",
+    "Подводя итог",
+    "Подводя итоги"
+  ],
+  "thresholds": {
+    "rhythm_min_words": 80,
+    "rhythm_min_sentences": 6,
+    "rhythm_cv": 0.18,
+    "repeat_min_words": 5,
+    "repeat_overlap": 0.82,
+    "list_min_items": 6
+  }
+}

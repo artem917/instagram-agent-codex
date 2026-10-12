@@ -1,5 +1,14 @@
 # Upstream and attribution
 
+IG_HUMAN_RU_V1 builds on the Codex port at
+`3f83e0790432f2379543d03d57e1c2cbb1d8c86e`. New authored work by artem917
+(2026, MIT): shared Russian tokenizer/analyzer/normalizer, Russian lexicon,
+data checks, ru/ru-social modes, editing guidance and synthetic tests.
+The original English lexicon, formulas, rubric and LICENSE remain unchanged.
+English baseline calculations remain regression-compatible, with a narrow
+emoji joiner/tag preservation fix. The other twelve skills are unchanged.
+No platform API, social action or authorship/watermark claim is added.
+
 This repository adapts Jake Schincariol's Claude Code Instagram Agent Skill
 pack for OpenAI Codex. The original creative workflows, hook formulas,
 lexicon, profile rubric and core scoring algorithms remain credited to Jake.

@@ -1,24 +1,13 @@
 #!/usr/bin/env python3
 """
-detect.py - a five-check panel that scores how machine-written a draft looks.
+Local style review, not authorship detection or a third-party detector API.
+English defaults retain the original five numeric heuristics and JSON keys.
+Russian modes use independent language-appropriate findings, metrics and
+recommendations, with no human/AI score or short-text penalty.
 
-What this is:  five local heuristics modelled on the signals public AI
-detectors actually measure - sentence-length variation, concreteness, stock
-vocabulary, typographic fingerprint, and voice. Every score is computed on
-your machine from the text alone. Nothing is uploaded.
-
-What this is NOT:  GPTZero, Originality, Copyleaks, Winston or Turnitin.
-It does not call their APIs and it cannot promise their verdict. It catches
-the things they all key on, which is why fixing them tends to move their
-numbers too - but the only honest claim is the one on this line.
-
-Each check returns a HUMAN score from 0 to 100. Higher is better.
-
-Usage
-  python3 detect.py draft.txt
-  # macOS clipboard (optional): pbpaste | python3 detect.py -
-  python3 detect.py draft.txt --json
-  python3 detect.py before.txt after.txt      # compare two drafts
+Usage:
+  python detect.py draft.txt --json
+  python detect.py before.txt after.txt --mode ru-social --json
 """
 
 import argparse
@@ -106,7 +95,8 @@ def check_slop(text, lex):
 
 def check_fingerprint(text):
     """Characters a phone keyboard does not produce."""
-    invisible = sum(1 for c in text if unicodedata.category(c) == "Cf")
+    invisible = sum(1 for c in text if unicodedata.category(c) == "Cf"
+                    and ord(c) != 0x200D and not 0xE0000 <= ord(c) <= 0xE007F)
     em = text.count("—")
     curly = sum(text.count(c) for c in "‘’“”")
     ellip = text.count("…")
@@ -192,14 +182,42 @@ def render(results, overall, verdict, label=None, out=sys.stdout):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Score how machine-written a draft looks.")
+    ap = argparse.ArgumentParser(description="Review text style; not a determination of authorship.")
     ap.add_argument("input", nargs="?", default="-", help="file, or - for stdin")
     ap.add_argument("compare", nargs="?", help="second file, to show before/after")
     ap.add_argument("--json", action="store_true")
-    ap.add_argument("--lexicon", default=LEX)
+    ap.add_argument("--lexicon", help="custom English or Russian lexicon")
+    ap.add_argument("--mode", choices=("en", "ru", "ru-social"), default="en")
+    ap.add_argument("--preserve", action="append", default=[])
+    ap.add_argument("--platform-settings", help="optional local JSON length/tag limits (RU)")
     args = ap.parse_args()
 
-    lex = json.loads(read_text(args.lexicon))
+    if args.mode != "en":
+        from ru_engine import RULES, analyze, load_rules, platform_settings, render_analysis
+        rules = load_rules(args.lexicon or RULES)
+        settings = platform_settings(args.platform_settings)
+        inputs = [args.input] + ([args.compare] if args.compare else [])
+        reports = []
+        original = None
+        for path in inputs:
+            raw = read_text(path)
+            if not raw.strip():
+                ap.error("empty Russian draft")
+            reports.append({"source": path, **analyze(raw, args.mode, rules, args.preserve, settings)})
+            if original is not None:
+                from content_guard import preservation
+                reports[-1]["comparison"] = preservation(original, raw, args.preserve)
+            original = raw
+        if args.json:
+            print(json.dumps(reports if args.compare else reports[0], indent=2, ensure_ascii=False))
+        else:
+            for report in reports:
+                print(f"Source: {report['source']}")
+                render_analysis(report, sys.stdout)
+        sys.exit(1 if reports[-1]["verdict"] == "REVIEW" else 0)
+    if args.preserve or args.platform_settings:
+        ap.error("--preserve and --platform-settings are Russian-mode options")
+    lex = json.loads(read_text(args.lexicon or LEX))
     read = lambda p: read_text(p)
 
     targets = [(args.input, read(args.input))]

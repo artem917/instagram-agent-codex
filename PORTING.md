@@ -1,5 +1,11 @@
 # Compatibility review
 
+Initial port review at baseline 3f83e07. IG_HUMAN_RU_V1 subsequently adds
+shared ru/ru-social editing and an emoji preservation fix; see
+[RU_TEST_REPORT.md](RU_TEST_REPORT.md) and [RU workflow](skills/ig-human/references/ru.md).
+Russian UNVERIFIED statements below describe that initial port. General
+semantic/voice quality still requires contextual review.
+
 Source reviewed: the README, all 13 SKILL.md files, all six Python tools,
 hooks.json, slop.json, rubric.json, voice.md, .gitignore, MIT LICENSE and both
 Claude plugin manifests at the commit in UPSTREAM.md. No requirements file,
