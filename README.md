@@ -11,7 +11,33 @@ Jake Schincariol для **OpenAI Codex**. MIT, без API-ключей и под
 Пользователь самостоятельно публикует и отправляет готовые материалы.
 Публикация в Instagram, VK, API, интеграции и монетизация в эту версию не входят.
 
-## Установка в выбранный проект
+## Плагин Codex V0
+
+Теперь набор упакован как portable Agent Plugins 1.0: `plugin.json`,
+совместимый `.codex-plugin/plugin.json` и локальный marketplace. Все 13 навыков
+устанавливаются целиком. MCP-серверов в V0 нет.
+
+```text
+codex plugin marketplace add artem917/instagram-agent-codex
+codex plugin add instagram-agent-codex@instagram-codex-local --json
+```
+
+Для отдельного профиля без изменения глобальных настроек:
+
+```text
+python scripts/install_plugin.py --codex-home /path/to/isolated-profile
+```
+
+Используйте этот же CODEX_HOME при запуске Codex. Начните с
+`$instagram-agent-codex:ig-plan` и попросите onboarding. Навыки плагина
+имеют префикс `instagram-agent-codex:`; старые standalone-вызовы сохраняются.
+[Инструкции EN/RU](PLUGIN.md), [проверки плагина](PLUGIN_TEST_REPORT.md),
+[исследование Instagram MCP](docs/INSTAGRAM_MCP_PLAN.md).
+[ZIP-релиз](https://github.com/artem917/instagram-agent-codex/releases/tag/plugin-v0.1.0)
+можно собрать повторно: `python scripts/package_plugin.py`.
+OpenAI moderation не запускалась, Instagram-аккаунт не подключался.
+
+## Установка в выбранный проект (прежний standalone-режим)
 
 Требования: Codex с доступом к локальным файлам и shell; Python 3.10+ для
 скриптов. Git нужен для клонирования, но можно скачать ZIP репозитория.

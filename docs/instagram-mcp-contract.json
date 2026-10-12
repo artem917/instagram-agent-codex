@@ -1,0 +1,137 @@
+{
+  "status": "DESIGN_ONLY_NOT_REGISTERED",
+  "version": "0.1.0-design",
+  "implementation": null,
+  "server_url": null,
+  "provider": "Meta Instagram API with Instagram Login (future authorized adapter)",
+  "tools": [
+    {
+      "name": "instagram_connect",
+      "input": [
+        "requested_permissions",
+        "user_connect_request",
+        "approval_receipt"
+      ],
+      "output": [
+        "connection_id",
+        "oauth_handoff",
+        "state"
+      ],
+      "approval": "Explicit user request plus OAuth consent; no secret output",
+      "readOnlyHint": false
+    },
+    {
+      "name": "instagram_status",
+      "input": [
+        "connection_id"
+      ],
+      "output": [
+        "account_type",
+        "granted_scopes",
+        "expires_at",
+        "blocked_reasons"
+      ],
+      "readOnlyHint": true
+    },
+    {
+      "name": "instagram_profile",
+      "input": [
+        "connection_id"
+      ],
+      "output": [
+        "account_id",
+        "username",
+        "account_type"
+      ],
+      "readOnlyHint": true
+    },
+    {
+      "name": "instagram_draft_create",
+      "input": [
+        "caption",
+        "media_refs",
+        "save_request",
+        "approval_receipt"
+      ],
+      "output": [
+        "draft_id",
+        "draft_version",
+        "payload_hash"
+      ],
+      "approval": "Explicit request to save this local draft",
+      "readOnlyHint": false
+    },
+    {
+      "name": "instagram_preview",
+      "input": [
+        "connection_id",
+        "draft_id",
+        "draft_version"
+      ],
+      "output": [
+        "account",
+        "exact_caption",
+        "media_preview",
+        "validation",
+        "payload_hash"
+      ],
+      "readOnlyHint": true
+    },
+    {
+      "name": "instagram_publish",
+      "input": [
+        "connection_id",
+        "draft_id",
+        "draft_version",
+        "payload_hash",
+        "approval_receipt",
+        "idempotency_key"
+      ],
+      "output": [
+        "operation_id",
+        "state",
+        "media_id",
+        "permalink"
+      ],
+      "approval": "Fresh one-time trusted user approval bound to every account/payload field before the first external write",
+      "readOnlyHint": false,
+      "destructiveHint": true
+    }
+  ],
+  "minimum_scopes": [
+    "instagram_business_basic",
+    "instagram_business_content_publish"
+  ],
+  "approval_fields": [
+    "user_id",
+    "connection_id",
+    "account_id",
+    "draft_version",
+    "payload_hash",
+    "media_hashes",
+    "operation",
+    "expires_at",
+    "one_time_nonce"
+  ],
+  "safety_invariants": [
+    "Never expose tokens to model context",
+    "Client approval hints do not enforce permission; server receipts do",
+    "OAuth consent is not publishing approval",
+    "Changed content invalidates approval",
+    "Unknown timeout outcome requires reconciliation, not blind retry",
+    "Per-user and per-account isolation",
+    "No schedule, comments, DMs or outreach in the minimum MVP"
+  ],
+  "states": [
+    "DISCONNECTED",
+    "OAUTH_PENDING",
+    "CONNECTED_READ",
+    "DRAFT",
+    "PREVIEWED",
+    "APPROVED",
+    "PUBLISHING",
+    "PUBLISHED",
+    "UNKNOWN",
+    "FAILED"
+  ]
+}

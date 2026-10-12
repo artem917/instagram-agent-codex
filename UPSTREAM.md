@@ -44,3 +44,14 @@ Claude marketplace/plugin manifests are removed from the active port. No
 OpenAI marketplace submission, social account integration, API keys or automatic
 publishing is included. Upstream historical benchmark claims are attributed
 to upstream, not new independently reproduced findings.
+
+## INSTAGRAM_CODEX_PLUGIN_V0
+
+Based on 8548381e87b85666281bf3edd3470e84d4ac3044. Adaptation work by
+artem917 (2026), MIT: portable/compatibility manifests, a local marketplace,
+deterministic ZIP builder and native isolated-profile installer, bilingual
+metadata/onboarding and tests. All 13 original skill names/resources remain.
+ig-plan adds only a setup branch; the weekly workflow and other twelve skills
+remain intact. scripts/install.py is unchanged. Empty MCP configuration and
+future interface research do not implement or activate an Instagram connection.
+Original Jake Schincariol copyright/MIT terms remain unmodified in every package.

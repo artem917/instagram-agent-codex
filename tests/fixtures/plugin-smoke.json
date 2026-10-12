@@ -1,0 +1,1642 @@
+{
+  "task": "INSTAGRAM_CODEX_PLUGIN_V0",
+  "date": "2026-10-12",
+  "baseline": "8548381",
+  "native_install": {
+    "installed": [
+      {
+        "pluginId": "instagram-agent-codex@instagram-codex-local",
+        "name": "instagram-agent-codex",
+        "marketplaceName": "instagram-codex-local",
+        "version": "0.1.0",
+        "installed": true,
+        "enabled": true,
+        "source": {
+          "source": "local",
+          "path": "<isolated-test>\\release-package"
+        },
+        "marketplaceSource": {
+          "sourceType": "local",
+          "source": "\\\\?\\<isolated-test>\\release-package"
+        },
+        "installPolicy": "AVAILABLE",
+        "authPolicy": "ON_USE"
+      }
+    ],
+    "available": []
+  },
+  "native_skills": [
+    {
+      "name": "instagram-agent-codex:ig-audit",
+      "description": "Post-mortem on what the user has already posted - which reels actually worked, why, and what to stop making. Use when the user pastes their Instagram insights or past posts and asks \"what's working\", \"why did this flop\", \"read my analytics\", \"audit my content\", or wants to know what to do more of.",
+      "interface": {
+        "displayName": "ig-audit",
+        "shortDescription": "Audit supplied Instagram post performance",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-audit for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-audit\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-caption",
+      "description": "Write the Instagram caption - the line that survives the \"... more\" cut, the body, the single ask, the search terms and the three hashtags - and lint it before it goes out. Use when the user says \"write the caption\", \"caption this\", \"what do I put in the description\", has a reel or a carousel ready and needs the text, or asks about hashtags.",
+      "interface": {
+        "displayName": "ig-caption",
+        "shortDescription": "Draft captions and run the local caption linter",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-caption for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-caption\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-carousel",
+      "description": "Build an Instagram carousel - the cover that earns the swipe, slide-by-slide copy, and HTML slide layouts; PNG/JPEG export needs an available renderer. Use when the user says \"carousel\", \"slides\", \"swipe post\", \"turn this into a carousel\", or has a list-shaped or step-shaped idea that would die as a single image.",
+      "interface": {
+        "displayName": "ig-carousel",
+        "shortDescription": "Draft carousel copy and prepare slide layouts",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-carousel for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-carousel\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-comment",
+      "description": "Write comments on other people's Instagram posts and reels that read as a person with an opinion, not a bot. Use when the user pastes a post or a reel and wants a comment, says \"comment on this\", \"engage with this\", \"what do I say here\", or wants a batch for their daily engagement round.",
+      "interface": {
+        "displayName": "ig-comment",
+        "shortDescription": "Draft comments from supplied Instagram posts",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-comment for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-comment\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-dm",
+      "description": "Write Instagram DMs that get replies - the keyword delivery, the first message to someone who engaged, the collab pitch, and the two follow-ups. Use when the user says \"DM this person\", \"what do I send them\", \"outreach message\", \"how do I follow up\", \"pitch this brand\", or is reaching out to someone specific.",
+      "interface": {
+        "displayName": "ig-dm",
+        "shortDescription": "Draft personal DMs and bounded follow-ups",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-dm for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-dm\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-human",
+      "description": "Clean and review English or Russian drafts using local scripts and an editable lexicon. Use for humanizing text, removing stock phrases, Russian wording or conversational posts for Instagram, VK, Telegram, Threads and other social networks. Russian modes ru and ru-social preserve facts and author voice; this is style editing, never authorship detection.",
+      "interface": {
+        "displayName": "ig-human",
+        "shortDescription": "Clean English and Russian drafts with local review",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-human to edit my draft in en, ru or ru-social while preserving facts and my voice."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-plan",
+      "description": "Build the week on Instagram - what to post, which format, when, and who to engage with. Use when the user says \"plan my week\", \"what should I post\", \"content calendar\", \"I have nothing to post about\", or wants a posting schedule and an engagement list.",
+      "interface": {
+        "displayName": "ig-plan",
+        "shortDescription": "Build a weekly Instagram content plan",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-plan for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-plan\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-profile",
+      "description": "Score an Instagram profile out of 100 against a 12-part rubric and rewrite the parts that lose points - name field, bio, link, highlights, pinned three, grid. Use when the user says \"optimize my profile\", \"fix my bio\", \"score my Instagram\", \"why don't people follow me\", or pastes their profile and asks how it reads.",
+      "interface": {
+        "displayName": "ig-profile",
+        "shortDescription": "Score a supplied profile and draft improvements",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-profile for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-profile\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-reel",
+      "description": "Write an Instagram Reel from a raw idea - hook options off 26 formulas, the spoken script, the on-screen text, and a timed beat sheet - in the user's own voice and scored before they shoot it. Use whenever the user wants a Reel, a short-form video script, a hook, a voiceover, \"make a reel about X\", \"what should I say in this video\", or is about to record and does not have the first line yet.",
+      "interface": {
+        "displayName": "ig-reel",
+        "shortDescription": "Draft Reels with scored hooks and timed beats",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-reel for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-reel\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-reply",
+      "description": "Handle the comments under the user's own reels and posts - draft replies to the ones worth answering, sorted by which ones are. Use when the user pastes their comments, says \"reply to these\", \"handle my comments\", \"someone said X on my reel\", or is dealing with a critic, a hater or a lead in the comments.",
+      "interface": {
+        "displayName": "ig-reply",
+        "shortDescription": "Triage supplied comments and draft replies",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-reply for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-reply\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-repurpose",
+      "description": "Turn one long asset - a YouTube video, podcast, livestream, newsletter, blog post or client call - into a week of reels and carousels. Use when the user says \"repurpose this\", \"turn this into reels\", \"I have a video/podcast/ transcript\", \"cut this up\", or pastes something long and wants it on Instagram.",
+      "interface": {
+        "displayName": "ig-repurpose",
+        "shortDescription": "Turn supplied long content into post ideas",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-repurpose for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-repurpose\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-story",
+      "description": "Write the day's Instagram Stories - the frame-by-frame sequence, which stickers to use where, and the one that moves people into the DMs. Use when the user says \"stories\", \"what do I post on my story\", \"story sequence\", \"poll idea\", \"I have nothing to story about\", or wants to sell something without making a post about it.",
+      "interface": {
+        "displayName": "ig-story",
+        "shortDescription": "Draft a daily sequence of Instagram Stories",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-story for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-story\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    },
+    {
+      "name": "instagram-agent-codex:ig-viral",
+      "description": "Go and find the reels that are actually working right now in the user's niche, rank them by how far each beat its own account, name the hook formula each one used, and turn that into a swipe file they can shoot from. Use when the user says \"find viral videos\", \"what's working right now\", \"what are people posting in my niche\", \"reverse engineer this account\", \"build me a swipe file\", \"why is this reel doing numbers\", or asks what to make next and has no evidence to answer with.",
+      "interface": {
+        "displayName": "ig-viral",
+        "shortDescription": "Rank manually captured Reels and build a swipe",
+        "iconSmall": null,
+        "iconLarge": null,
+        "iconSmallUrl": null,
+        "iconLargeUrl": null,
+        "brandColor": null,
+        "defaultPrompt": "Use $ig-viral for my Instagram content task using the facts I provide."
+      },
+      "path": "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-viral\\SKILL.md",
+      "scope": "user",
+      "enabled": true,
+      "pluginId": "instagram-agent-codex@instagram-codex-local"
+    }
+  ],
+  "cases": {
+    "human": {
+      "codex_turn_completed": true,
+      "global_config_unchanged": true,
+      "reports": {
+        "cli-runs.json": [
+          {
+            "argv": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+              "<isolated-test>\\final-workspace\\source-ru.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stdout_report": "detect-source.json",
+            "stderr": ""
+          },
+          {
+            "argv": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\humanize.py",
+              "<isolated-test>\\final-workspace\\source-ru.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stdout_report": "humanize-source.json",
+            "stderr": ""
+          },
+          {
+            "argv": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\humanize.py",
+              "<isolated-test>\\final-workspace\\final-human.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stdout_report": "humanize-final.json",
+            "stderr": ""
+          },
+          {
+            "argv": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+              "<isolated-test>\\final-workspace\\final-human.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stdout_report": "detect-final.json",
+            "stderr": ""
+          },
+          {
+            "argv": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+              "<isolated-test>\\final-workspace\\source-ru.txt",
+              "<isolated-test>\\final-workspace\\final-human.txt",
+              "--mode",
+              "ru-social",
+              "--preserve",
+              "Искра",
+              "--preserve",
+              "Николай Ёлкин",
+              "--preserve",
+              "ЁЖ-42",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stdout_report": "detect-comparison.json",
+            "stderr": ""
+          }
+        ],
+        "detect-comparison.json": [
+          {
+            "source": "<isolated-test>\\final-workspace\\source-ru.txt",
+            "mode": "ru-social",
+            "verdict": "REVIEW",
+            "findings": [
+              {
+                "id": "at-this-moment",
+                "category": "bureaucratic",
+                "start": 0,
+                "end": 16,
+                "evidence": "На данный момент",
+                "recommendation": "Для обычного поста достаточно «сейчас»; временной смысл сохраняется.",
+                "severity": "note"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 22,
+                "end": 23,
+                "evidence": "«",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 28,
+                "end": 29,
+                "evidence": "»",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              },
+              {
+                "id": "social-format",
+                "category": "formatting",
+                "start": 43,
+                "end": 45,
+                "evidence": "\n\n",
+                "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+                "severity": "warning"
+              }
+            ],
+            "metrics": {
+              "prose_words": 15,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  7,
+                  3
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 1,
+              "filler_words": 3,
+              "filler_fraction": 0.2,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED"
+          },
+          {
+            "source": "<isolated-test>\\final-workspace\\final-human.txt",
+            "mode": "ru-social",
+            "verdict": "CLEAN",
+            "findings": [],
+            "metrics": {
+              "prose_words": 13,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  5,
+                  3
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 0,
+              "filler_words": 0,
+              "filler_fraction": 0.0,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED",
+            "comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            }
+          }
+        ],
+        "detect-final.json": {
+          "source": "<isolated-test>\\final-workspace\\final-human.txt",
+          "mode": "ru-social",
+          "verdict": "CLEAN",
+          "findings": [],
+          "metrics": {
+            "prose_words": 13,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                5,
+                3
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 0,
+            "filler_words": 0,
+            "filler_fraction": 0.0,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "detect-source.json": {
+          "source": "<isolated-test>\\final-workspace\\source-ru.txt",
+          "mode": "ru-social",
+          "verdict": "REVIEW",
+          "findings": [
+            {
+              "id": "at-this-moment",
+              "category": "bureaucratic",
+              "start": 0,
+              "end": 16,
+              "evidence": "На данный момент",
+              "recommendation": "Для обычного поста достаточно «сейчас»; временной смысл сохраняется.",
+              "severity": "note"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 22,
+              "end": 23,
+              "evidence": "«",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 28,
+              "end": 29,
+              "evidence": "»",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            },
+            {
+              "id": "social-format",
+              "category": "formatting",
+              "start": 43,
+              "end": 45,
+              "evidence": "\n\n",
+              "recommendation": "В ru-social нужны обычные двойные кавычки, отсутствие длинного тире и пустых строк.",
+              "severity": "warning"
+            }
+          ],
+          "metrics": {
+            "prose_words": 15,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                7,
+                3
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 1,
+            "filler_words": 3,
+            "filler_fraction": 0.2,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "humanize-final.json": {
+          "text": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "paragraph-flow",
+                "before": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42\n",
+                "after": "Сейчас ёлка \"Искра\" стоит у окна. Николай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42"
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "CLEAN",
+              "findings": [],
+              "metrics": {
+                "prose_words": 13,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    5,
+                    3
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 0,
+                "filler_words": 0,
+                "filler_fraction": 0.0,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "CLEAN"
+          }
+        },
+        "humanize-source.json": {
+          "text": "Сейчас ёлка \"Искра\" стоит у окна.\nНиколай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "plain-wording",
+                "before": "На данный момент",
+                "after": "Сейчас"
+              },
+              {
+                "id": "paragraph-flow",
+                "before": "Сейчас ёлка \"Искра\" стоит у окна.\n\nНиколай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42\n",
+                "after": "Сейчас ёлка \"Искра\" стоит у окна.\nНиколай Ёлкин не покупал её. Артикул ЁЖ-42, цена 1 250,50 ₽. Семья 👨‍👩‍👧‍👦 довольна.\nURL https://example.com/tree?id=42"
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "CLEAN",
+              "findings": [],
+              "metrics": {
+                "prose_words": 13,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    5,
+                    3
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 0,
+                "filler_words": 0,
+                "filler_fraction": 0.0,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "CLEAN"
+          }
+        },
+        "literal-checks.json": {
+          "checks": {
+            "Искра": true,
+            "Николай Ёлкин": true,
+            "не покупал её": true,
+            "ЁЖ-42": true,
+            "1 250,50 ₽": true,
+            "👨‍👩‍👧‍👦": true,
+            "https://example.com/tree?id=42": true
+          },
+          "passed": true,
+          "method": "exact literal counts; not semantic verification"
+        }
+      }
+    },
+    "caption": {
+      "codex_turn_completed": true,
+      "global_config_unchanged": true,
+      "reports": {
+        "caption-lint.json": {
+          "characters": 107,
+          "limit": 2200,
+          "truncate_at": 125,
+          "visible": "Save this.\n\nI cut drafting time for client proposals from 5 hours to 20 minutes.\n\nThe change: one template.",
+          "truncated": false,
+          "first_line_chars": 10,
+          "hashtags": [],
+          "mentions": [],
+          "links": [],
+          "emoji": 0,
+          "asks": [
+            "save this"
+          ],
+          "checks": [
+            {
+              "check": "LENGTH",
+              "status": "PASS",
+              "detail": "107 / 2200 characters"
+            },
+            {
+              "check": "FIRST LINE",
+              "status": "PASS",
+              "detail": "10 characters, lands whole"
+            },
+            {
+              "check": "HOOK IS CONCRETE",
+              "status": "PASS",
+              "detail": "2 number(s) or name(s) in the visible window"
+            },
+            {
+              "check": "HASHTAGS",
+              "status": "PASS",
+              "detail": "0 tag(s)"
+            },
+            {
+              "check": "TAG PLACEMENT",
+              "status": "PASS",
+              "detail": "no tags to place"
+            },
+            {
+              "check": "LINKS",
+              "status": "PASS",
+              "detail": "no dead links in the body"
+            },
+            {
+              "check": "ONE ASK",
+              "status": "PASS",
+              "detail": "one call to action: save this"
+            },
+            {
+              "check": "EMOJI",
+              "status": "PASS",
+              "detail": "0 emoji, 0.0 per 100 characters"
+            },
+            {
+              "check": "SEARCH TERMS",
+              "status": "PASS",
+              "detail": "1/1 present, 1 in the visible window"
+            }
+          ],
+          "verdict": "READY"
+        },
+        "cli-runs.json": [
+          {
+            "arguments": [
+              "draft-caption.txt",
+              "--mode",
+              "en",
+              "-o",
+              "final-caption.txt",
+              "--json"
+            ],
+            "tool": "humanize.py",
+            "exit_code": 0
+          },
+          {
+            "error": "final-caption.txt missing: humanize JSON mode returned text without writing -o file",
+            "arguments": [
+              "draft-caption.txt",
+              "final-caption.txt",
+              "--mode",
+              "en",
+              "--json"
+            ],
+            "tool": "detect.py",
+            "exit_code": 2
+          },
+          {
+            "arguments": [
+              "draft-caption.txt",
+              "final-caption.txt",
+              "--mode",
+              "en",
+              "--json"
+            ],
+            "tool": "detect.py",
+            "exit_code": 1
+          },
+          {
+            "arguments": [
+              "final-caption.txt",
+              "--keywords",
+              "client proposals"
+            ],
+            "exit_code": 0,
+            "tool": "caption.py"
+          },
+          {
+            "exit_code": 0,
+            "tool": "caption.py",
+            "arguments": [
+              "final-caption.txt",
+              "--keywords",
+              "client proposals",
+              "--json"
+            ]
+          }
+        ],
+        "detect.json": [
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\caption\\draft-caption.txt",
+            "checks": {
+              "BURSTINESS": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SPECIFICITY": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SLOP DENSITY": {
+                "score": 100.0,
+                "detail": "0 stock terms, 0.0 per 100 words"
+              },
+              "FINGERPRINT": {
+                "score": 100.0,
+                "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+              },
+              "VOICE": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              }
+            },
+            "human_score": 62.0,
+            "verdict": "REVIEW"
+          },
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\caption\\final-caption.txt",
+            "checks": {
+              "BURSTINESS": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SPECIFICITY": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SLOP DENSITY": {
+                "score": 100.0,
+                "detail": "0 stock terms, 0.0 per 100 words"
+              },
+              "FINGERPRINT": {
+                "score": 100.0,
+                "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+              },
+              "VOICE": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              }
+            },
+            "human_score": 62.0,
+            "verdict": "REVIEW"
+          }
+        ],
+        "humanize.json": {
+          "text": "Save this.\n\nI cut drafting time for client proposals from 5 hours to 20 minutes.\n\nThe change: one template.\n",
+          "report": {
+            "invisible": [],
+            "typographic": [],
+            "lexical": [],
+            "structures": []
+          }
+        }
+      }
+    },
+    "reel": {
+      "codex_turn_completed": true,
+      "global_config_unchanged": true,
+      "reports": {
+        "beats-draft.json": {
+          "wpm": 165,
+          "target": 15.0,
+          "total_seconds": 9.09,
+          "total_words": 25,
+          "beats": [
+            {
+              "n": 1,
+              "start": 0.0,
+              "dur": 2.18,
+              "words": 6,
+              "text": "Before: 5 hours. After: 20 minutes.",
+              "concrete": 3,
+              "label": "HOOK",
+              "flags": []
+            },
+            {
+              "n": 2,
+              "start": 2.18,
+              "dur": 2.18,
+              "words": 6,
+              "text": "That's my client proposal drafting time.",
+              "concrete": 0,
+              "label": "",
+              "flags": []
+            },
+            {
+              "n": 3,
+              "start": 4.36,
+              "dur": 2.18,
+              "words": 6,
+              "text": "I cut it with 1 template.",
+              "concrete": 1,
+              "label": "MID",
+              "flags": []
+            },
+            {
+              "n": 4,
+              "start": 6.55,
+              "dur": 2.55,
+              "words": 7,
+              "text": "Save this if drafting takes you hours.",
+              "concrete": 0,
+              "label": "CTA",
+              "flags": []
+            }
+          ],
+          "notes": [
+            "Loops: the last beat repeats \"hours\" from the hook. Second watches are free reach.",
+            "5.9s under target. Either add 16 words or shoot it short. Short is usually right."
+          ]
+        },
+        "beats-final.json": {
+          "wpm": 165,
+          "target": 15.0,
+          "total_seconds": 9.09,
+          "total_words": 25,
+          "beats": [
+            {
+              "n": 1,
+              "start": 0.0,
+              "dur": 2.18,
+              "words": 6,
+              "text": "Before: 5 hours. After: 20 minutes.",
+              "concrete": 3,
+              "label": "HOOK",
+              "flags": []
+            },
+            {
+              "n": 2,
+              "start": 2.18,
+              "dur": 2.18,
+              "words": 6,
+              "text": "That's my client proposal drafting time.",
+              "concrete": 0,
+              "label": "",
+              "flags": []
+            },
+            {
+              "n": 3,
+              "start": 4.36,
+              "dur": 2.18,
+              "words": 6,
+              "text": "I cut it with 1 template.",
+              "concrete": 1,
+              "label": "MID",
+              "flags": []
+            },
+            {
+              "n": 4,
+              "start": 6.55,
+              "dur": 2.55,
+              "words": 7,
+              "text": "Save this if drafting takes you hours.",
+              "concrete": 0,
+              "label": "CTA",
+              "flags": []
+            }
+          ],
+          "notes": [
+            "Loops: the last beat repeats \"hours\" from the hook. Second watches are free reach.",
+            "5.9s under target. Either add 16 words or shoot it short. Short is usually right."
+          ]
+        },
+        "cli-results.json": [
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-reel\\hookscore.py",
+              "results\\reel\\hooks.txt",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "stdout_report": "hook-scores.json"
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-reel\\beats.py",
+              "results\\reel\\draft-script.txt",
+              "--target",
+              "15",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stderr": "",
+            "stdout_report": "beats-draft.json"
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\humanize.py",
+              "results\\reel\\draft-script.txt",
+              "--mode",
+              "en",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stderr": "",
+            "stdout_report": "humanize.json"
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+              "results\\reel\\draft-script.txt",
+              "results\\reel\\final-script.txt",
+              "--mode",
+              "en",
+              "--json"
+            ],
+            "exit_code": 1,
+            "stderr": "",
+            "stdout_report": "human-detect.json"
+          },
+          {
+            "command": [
+              "C:\\Python314\\python.exe",
+              "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-reel\\beats.py",
+              "results\\reel\\final-script.txt",
+              "--target",
+              "15",
+              "--json"
+            ],
+            "exit_code": 0,
+            "stderr": "",
+            "stdout_report": "beats-final.json"
+          }
+        ],
+        "hook-formulas.json": [
+          {
+            "id": 5,
+            "formula": "Time Collapse",
+            "spoken": "Proposal drafting: 5 hours to 20 minutes.",
+            "on_screen": "5 HOURS -> 20 MIN",
+            "score": 50.6,
+            "verdict": "OK"
+          },
+          {
+            "id": 13,
+            "formula": "Before And After, On Screen",
+            "spoken": "Before: 5 hours. After: 20 minutes.",
+            "on_screen": "BEFORE: 5H / AFTER: 20MIN",
+            "score": 62.6,
+            "verdict": "OK"
+          },
+          {
+            "id": 14,
+            "formula": "The Callout",
+            "spoken": "Freelance designers, here's my proposal drafting shortcut.",
+            "on_screen": "FREELANCE DESIGNERS: PROPOSAL DRAFTING",
+            "score": 34.2,
+            "verdict": "WEAK"
+          }
+        ],
+        "hook-scores.json": [
+          {
+            "hook": "Proposal drafting: 5 hours to 20 minutes.",
+            "checks": {
+              "LENGTH": {
+                "score": 100.0,
+                "detail": "7 words, 41 chars, ~2.5s spoken (want 5-12 words)"
+              },
+              "SPECIFICITY": {
+                "score": 100.0,
+                "detail": "2 concrete marker(s): 5 hours, 20 minutes"
+              },
+              "STAKES": {
+                "score": 20.0,
+                "detail": "0 tension marker(s) - nothing is at stake in this line"
+              },
+              "FRONTLOAD": {
+                "score": 100.0,
+                "detail": "payload at word 3"
+              },
+              "ADDRESS": {
+                "score": 35.0,
+                "detail": "third person, nobody in the room"
+              }
+            },
+            "weakest": "STAKES",
+            "flags": [],
+            "score": 50.6,
+            "verdict": "OK"
+          },
+          {
+            "hook": "Before: 5 hours. After: 20 minutes.",
+            "checks": {
+              "LENGTH": {
+                "score": 100.0,
+                "detail": "6 words, 35 chars, ~2.2s spoken (want 5-12 words)"
+              },
+              "SPECIFICITY": {
+                "score": 100.0,
+                "detail": "3 concrete marker(s): 5 hours, 20 minutes, After"
+              },
+              "STAKES": {
+                "score": 70.0,
+                "detail": "1 tension marker(s): before"
+              },
+              "FRONTLOAD": {
+                "score": 100.0,
+                "detail": "payload at word 1"
+              },
+              "ADDRESS": {
+                "score": 35.0,
+                "detail": "third person, nobody in the room"
+              }
+            },
+            "weakest": "ADDRESS",
+            "flags": [],
+            "score": 62.6,
+            "verdict": "OK"
+          },
+          {
+            "hook": "Freelance designers, here's my proposal drafting shortcut.",
+            "checks": {
+              "LENGTH": {
+                "score": 100.0,
+                "detail": "7 words, 58 chars, ~2.5s spoken (want 5-12 words)"
+              },
+              "SPECIFICITY": {
+                "score": 15.0,
+                "detail": "0 concrete marker(s) - no number, no name, nothing checkable"
+              },
+              "STAKES": {
+                "score": 20.0,
+                "detail": "0 tension marker(s) - nothing is at stake in this line"
+              },
+              "FRONTLOAD": {
+                "score": 30.0,
+                "detail": "no payload word anywhere in the line"
+              },
+              "ADDRESS": {
+                "score": 70.0,
+                "detail": "first person, no viewer named"
+              }
+            },
+            "weakest": "SPECIFICITY",
+            "flags": [],
+            "score": 34.2,
+            "verdict": "WEAK"
+          }
+        ],
+        "human-detect.json": [
+          {
+            "source": "results\\reel\\draft-script.txt",
+            "checks": {
+              "BURSTINESS": {
+                "score": 23.9,
+                "detail": "variation 0.33 across 5 sentences (want 0.55+)"
+              },
+              "SPECIFICITY": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SLOP DENSITY": {
+                "score": 100.0,
+                "detail": "0 stock terms, 0.0 per 100 words"
+              },
+              "FINGERPRINT": {
+                "score": 100.0,
+                "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+              },
+              "VOICE": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              }
+            },
+            "human_score": 48.4,
+            "verdict": "FLAGGED"
+          },
+          {
+            "source": "results\\reel\\final-script.txt",
+            "checks": {
+              "BURSTINESS": {
+                "score": 23.9,
+                "detail": "variation 0.33 across 5 sentences (want 0.55+)"
+              },
+              "SPECIFICITY": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              },
+              "SLOP DENSITY": {
+                "score": 100.0,
+                "detail": "0 stock terms, 0.0 per 100 words"
+              },
+              "FINGERPRINT": {
+                "score": 100.0,
+                "detail": "0 invisible, 0 em dash, 0 curly quote, 0 ellipsis, 0 hard space"
+              },
+              "VOICE": {
+                "score": 50.0,
+                "detail": "too short to judge"
+              }
+            },
+            "human_score": 48.4,
+            "verdict": "FLAGGED"
+          }
+        ],
+        "humanize.json": {
+          "text": "Before: 5 hours. After: 20 minutes.\nThat's my client proposal drafting time.\nI cut it with 1 template.\nSave this if drafting takes you hours.\n",
+          "report": {
+            "invisible": [],
+            "typographic": [],
+            "lexical": [],
+            "structures": [
+              {
+                "name": "Uniform sentence length (variation 0.33)",
+                "count": 5,
+                "fix": "Break one sentence in half. Let another run long. Machines write even."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "onboarding": {
+      "codex_turn_completed": true,
+      "global_config_unchanged": true,
+      "reports": {
+        "cli-runs.json": {
+          "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+          "data_dir": "<isolated-test>\\final-workspace\\data\\onboarding",
+          "skills": [
+            "instagram-agent-codex:ig-plan",
+            "instagram-agent-codex:ig-human"
+          ],
+          "runs": [
+            {
+              "label": "sample-1.detect-before",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.original.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-1.detect-before.json",
+              "stderr": "sample-1.detect-before.stderr.txt"
+            },
+            {
+              "label": "sample-1.humanize",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\humanize.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.original.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-1.humanize.json",
+              "stderr": "sample-1.humanize.stderr.txt"
+            },
+            {
+              "label": "sample-1.detect-after",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.original.txt",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.edited.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-1.detect-after.json",
+              "stderr": "sample-1.detect-after.stderr.txt"
+            },
+            {
+              "label": "sample-2.detect-before",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.original.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-2.detect-before.json",
+              "stderr": "sample-2.detect-before.stderr.txt"
+            },
+            {
+              "label": "sample-2.humanize",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\humanize.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.original.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-2.humanize.json",
+              "stderr": "sample-2.humanize.stderr.txt"
+            },
+            {
+              "label": "sample-2.detect-after",
+              "command": [
+                "C:\\Python314\\python.exe",
+                "-B",
+                "<isolated-test>\\final-home\\plugins\\cache\\instagram-codex-local\\instagram-agent-codex\\0.1.0\\skills\\ig-human\\detect.py",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.original.txt",
+                "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.edited.txt",
+                "--mode",
+                "ru-social",
+                "--json"
+              ],
+              "exit_code": 0,
+              "stdout": "sample-2.detect-after.json",
+              "stderr": "sample-2.detect-after.stderr.txt"
+            }
+          ],
+          "existing_data_voice_unchanged": true
+        },
+        "sample-1.detect-after.json": [
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.original.txt",
+            "mode": "ru-social",
+            "verdict": "CLEAN",
+            "findings": [],
+            "metrics": {
+              "prose_words": 6,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  4
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 0,
+              "filler_words": 0,
+              "filler_fraction": 0.0,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED"
+          },
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.edited.txt",
+            "mode": "ru-social",
+            "verdict": "CLEAN",
+            "findings": [],
+            "metrics": {
+              "prose_words": 6,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  4
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 0,
+              "filler_words": 0,
+              "filler_fraction": 0.0,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED",
+            "comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            }
+          }
+        ],
+        "sample-1.detect-before.json": {
+          "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-1.original.txt",
+          "mode": "ru-social",
+          "verdict": "CLEAN",
+          "findings": [],
+          "metrics": {
+            "prose_words": 6,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                4
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 0,
+            "filler_words": 0,
+            "filler_fraction": 0.0,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "sample-1.humanize.json": {
+          "text": "Не купил новую ёлку. Украсил старую.\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "paragraph-flow",
+                "before": "Не купил новую ёлку. Украсил старую.\n",
+                "after": "Не купил новую ёлку. Украсил старую."
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "CLEAN",
+              "findings": [],
+              "metrics": {
+                "prose_words": 6,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    4
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 0,
+                "filler_words": 0,
+                "filler_fraction": 0.0,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "CLEAN"
+          }
+        },
+        "sample-2.detect-after.json": [
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.original.txt",
+            "mode": "ru-social",
+            "verdict": "CLEAN",
+            "findings": [],
+            "metrics": {
+              "prose_words": 8,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  5,
+                  3
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 0,
+              "filler_words": 0,
+              "filler_fraction": 0.0,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED"
+          },
+          {
+            "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.edited.txt",
+            "mode": "ru-social",
+            "verdict": "CLEAN",
+            "findings": [],
+            "metrics": {
+              "prose_words": 8,
+              "rhythm": {
+                "status": "INCONCLUSIVE",
+                "sentence_words": [
+                  5,
+                  3
+                ],
+                "coefficient_of_variation": null
+              },
+              "filler_spans": 0,
+              "filler_words": 0,
+              "filler_fraction": 0.0,
+              "list_items": 0,
+              "repetitions": []
+            },
+            "platform_settings": {},
+            "authorship": "NOT_ASSESSED",
+            "semantic_equivalence": "UNVERIFIED",
+            "comparison": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            }
+          }
+        ],
+        "sample-2.detect-before.json": {
+          "source": "<isolated-test>\\final-workspace\\results\\onboarding\\sample-2.original.txt",
+          "mode": "ru-social",
+          "verdict": "CLEAN",
+          "findings": [],
+          "metrics": {
+            "prose_words": 8,
+            "rhythm": {
+              "status": "INCONCLUSIVE",
+              "sentence_words": [
+                5,
+                3
+              ],
+              "coefficient_of_variation": null
+            },
+            "filler_spans": 0,
+            "filler_words": 0,
+            "filler_fraction": 0.0,
+            "list_items": 0,
+            "repetitions": []
+          },
+          "platform_settings": {},
+          "authorship": "NOT_ASSESSED",
+          "semantic_equivalence": "UNVERIFIED"
+        },
+        "sample-2.humanize.json": {
+          "text": "Кот занял место под ёлкой. Вопрос жилья решён.\n",
+          "candidate": null,
+          "report": {
+            "mode": "ru-social",
+            "normalization": [
+              {
+                "id": "paragraph-flow",
+                "before": "Кот занял место под ёлкой. Вопрос жилья решён.\n",
+                "after": "Кот занял место под ёлкой. Вопрос жилья решён."
+              }
+            ],
+            "analysis": {
+              "mode": "ru-social",
+              "verdict": "CLEAN",
+              "findings": [],
+              "metrics": {
+                "prose_words": 8,
+                "rhythm": {
+                  "status": "INCONCLUSIVE",
+                  "sentence_words": [
+                    5,
+                    3
+                  ],
+                  "coefficient_of_variation": null
+                },
+                "filler_spans": 0,
+                "filler_words": 0,
+                "filler_fraction": 0.0,
+                "list_items": 0,
+                "repetitions": []
+              },
+              "platform_settings": {},
+              "authorship": "NOT_ASSESSED",
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "preservation": {
+              "passed": true,
+              "changed": [],
+              "checked": [
+                "urls",
+                "identifiers",
+                "names",
+                "numbers",
+                "negations",
+                "emoji",
+                "explicit",
+                "code"
+              ],
+              "semantic_equivalence": "UNVERIFIED"
+            },
+            "unresolved": [],
+            "status": "CLEAN"
+          }
+        }
+      }
+    }
+  },
+  "release_zip_sha256": "620306d215dae8321f23afcb2e968452bcf25314e0cf8d7e36c872bb30cbf58a",
+  "runtime_code_data_matching_smoke_cache": 16
+}

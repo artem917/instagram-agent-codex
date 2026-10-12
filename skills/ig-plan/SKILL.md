@@ -10,6 +10,15 @@ license: MIT
 First read [the Codex runtime guide](references/codex.md) for resource paths,
 voice/data handling, execution limits and truthful test reporting.
 
+## Plugin onboarding
+
+When invoked for plugin setup/onboarding rather than a weekly plan, read
+[the onboarding guide](references/onboarding.md), help choose language and
+local workspace/data preferences, and stop after a first useful draft or
+verified tool check. Do not invent a posting schedule, ask for credentials,
+connect an account or change global Codex settings. For ordinary weekly
+planning, continue with the existing workflow below.
+
 The control room. Everything else in this pack executes; this decides what gets
 executed. Run it once a week, on the same day.
 

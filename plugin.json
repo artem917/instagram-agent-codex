@@ -1,0 +1,51 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "instagram-agent-codex",
+  "version": "0.1.0",
+  "description": "Thirteen Instagram drafting and review skills for Codex, with local Python tools and English/Russian text editing. No account connection or automatic posting.",
+  "author": {
+    "name": "artem917",
+    "url": "https://github.com/artem917"
+  },
+  "homepage": "https://github.com/artem917/instagram-agent-codex",
+  "repository": "https://github.com/artem917/instagram-agent-codex",
+  "license": "MIT",
+  "keywords": [
+    "instagram",
+    "codex",
+    "drafting",
+    "skills",
+    "russian"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Instagram Drafting for Codex",
+        "shortDescription": "Draft, review and plan Instagram content",
+        "longDescription": "13 drafting skills, local Python reports and en/ru/ru-social editing. Based on Jake Schincariol's MIT original. No Instagram connection or automatic posting. / 13 навыков для черновиков и анализа, локальные Python-отчёты и русский стиль. Без подключения Instagram и автопубликации.",
+        "developerName": "artem917",
+        "category": "Productivity",
+        "capabilities": [
+          "Draft text",
+          "Review supplied evidence",
+          "Local Python tools"
+        ],
+        "websiteURL": "https://github.com/artem917/instagram-agent-codex",
+        "defaultPrompt": [
+          "Set up this plugin with $instagram-agent-codex:ig-plan onboarding.",
+          "Use $instagram-agent-codex:ig-reel to draft a Reel from my own facts.",
+          "Отредактируй мой пост через $instagram-agent-codex:ig-human в режиме ru-social."
+        ]
+      },
+      "onboardingSkill": "./skills/ig-plan/SKILL.md",
+      "publication": {
+        "translations": {
+          "ru-RU": {
+            "subtitle": "Черновики и анализ Instagram в Codex",
+            "description": "13 навыков, локальные Python-инструменты и режимы en, ru, ru-social. Подготовка материалов без подключения аккаунтов и автопубликации. Оригинальные методики Jake Schincariol сохранены под MIT."
+          }
+        }
+      }
+    }
+  }
+}

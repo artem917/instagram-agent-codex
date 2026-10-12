@@ -6,6 +6,7 @@ quoting, which is a YAML-compatible subset. This is not a general YAML parser.
 import ast
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -90,10 +91,13 @@ def validate(root=ROOT):
         path = root / "skills" / rel
         if not path.is_file() or not (path.parent / "ig_io.py").is_file():
             raise ValueError(f"Missing executable or I/O helper: {rel}")
-    for path in root.rglob("*.py"):
-        if any(part in (".git", ".agents", ".test-work", ".venv") for part in path.relative_to(root).parts):
-            continue
-        ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    excluded = {".git", ".agents", ".test-work", ".venv", "__pycache__", ".codebase-memory", ".local-plugins", "outputs"}
+    for directory, folders, files in os.walk(root):
+        folders[:] = [name for name in folders if name not in excluded]
+        for name in files:
+            if name.endswith(".py"):
+                path = Path(directory) / name
+                ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     for path in (root / "skills").rglob("*.json"):
         json.loads(path.read_text(encoding="utf-8"))
     hooks = json.loads((root / "skills/ig-reel/hooks.json").read_text(encoding="utf-8"))
